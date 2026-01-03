@@ -1,0 +1,407 @@
+<!DOCTYPE html><html lang="en" class="scroll-smooth"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="The Guardrail - Curated AI safety research papers from arXiv, updated daily"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="generator" content="Astro v4.16.19"><title>Analytics - The Guardrail</title><!-- Fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"><!-- Dark mode script - run before render to prevent flash --><script>
+      const theme = localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.classList.toggle('dark', theme === 'dark');
+    </script><link rel="stylesheet" href="/assets/about.D_q0M2PZ.css"><script type="module" src="/assets/hoisted.CML0dFZb.js"></script></head> <body class="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 antialiased"> <!-- Gradient background effects --> <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none ambient-bg"> <div class="absolute -top-48 -right-48 w-[520px] h-[520px] bg-gradient-to-br from-brass-300/35 via-brass-200/15 to-transparent dark:from-brass-500/15 dark:via-brass-400/10 dark:to-transparent rounded-full blur-3xl"></div> <div class="absolute top-1/4 -left-48 w-[480px] h-[480px] bg-gradient-to-br from-emerald-400/15 via-teal-300/10 to-transparent dark:from-emerald-600/10 dark:via-teal-500/10 dark:to-transparent rounded-full blur-3xl"></div> <div class="absolute bottom-0 right-1/3 w-[640px] h-[640px] bg-gradient-to-br from-slate-300/20 via-slate-200/10 to-transparent dark:from-slate-800/40 dark:via-slate-700/20 dark:to-transparent rounded-full blur-3xl"></div> </div>  <header class="site-header sticky top-0 z-50 glass border-b border-slate-200/50 dark:border-slate-800/50 shadow-[0_16px_40px_-35px_rgba(0,0,0,0.35)]"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> <div class="flex items-center justify-between h-14 sm:h-16"> <!-- Logo / Title --> <a href="/" class="flex items-center space-x-2 sm:space-x-3 group shrink-0"> <div class="relative"> <div class="absolute inset-0 bg-gradient-to-br from-brass-400/60 to-brass-200/30 rounded-xl blur opacity-40 group-hover:opacity-70 transition-opacity"></div> <div class="relative w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 ring-1 ring-brass-400/40 flex items-center justify-center shadow-lg"> <svg class="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path> </svg> </div> </div> <div class="min-w-0"> <h1 class="text-base sm:text-lg font-semibold font-display tracking-[0.03em] bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-slate-300 bg-clip-text text-transparent truncate">
+Guardrail
+</h1> <p class="hidden sm:block text-[10px] uppercase tracking-[0.28em] text-slate-500 dark:text-slate-400 font-medium">AI Safety Research, Daily</p> </div> </a> <!-- Desktop Navigation --> <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">  <a href="/" class="nav-link px-3 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors rounded-full hover:bg-slate-100/80 dark:hover:bg-slate-800/80">
+Home
+</a> <a href="/editors-choice/" class="nav-link px-3 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors rounded-full hover:bg-slate-100/80 dark:hover:bg-slate-800/80 flex items-center gap-1.5"> <svg class="w-4 h-4 text-brass-500" fill="currentColor" viewBox="0 0 24 24"> <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path> </svg>
+Editor's Choice
+</a> <a href="/conference-selections/" class="nav-link px-3 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors rounded-full hover:bg-slate-100/80 dark:hover:bg-slate-800/80 flex items-center gap-1.5"> <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path> </svg>
+Conference Selections
+</a> <a href="/about/" class="nav-link px-3 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors rounded-full hover:bg-slate-100/80 dark:hover:bg-slate-800/80">
+About
+</a> <a href="/analytics/" class="nav-link px-3 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors rounded-full hover:bg-slate-100/80 dark:hover:bg-slate-800/80">
+Analytics
+</a> <a href="/my-papers/" class="nav-link px-3 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors rounded-full hover:bg-slate-100/80 dark:hover:bg-slate-800/80 flex items-center gap-1.5">
+My Papers
+<span id="bookmark-count-desktop" class="hidden px-1.5 py-0.5 text-xs font-semibold bg-brass-500 text-white rounded-full min-w-[1.25rem] text-center">0</span> </a> <a href="https://github.com/thecraigd/ai-safety-papers" target="_blank" rel="noopener noreferrer" class="p-2 rounded-full text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800/80 transition-colors" aria-label="GitHub"> <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"> <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path> </svg> </a> <button id="theme-toggle-desktop" class="p-2 rounded-full text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800/80 transition-all" aria-label="Toggle dark mode"> <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path> </svg> <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path> </svg> </button> </nav> <!-- Mobile Navigation Controls --> <div class="flex md:hidden items-center space-x-1"> <button id="theme-toggle-mobile" class="p-2 rounded-full text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800/80 transition-all" aria-label="Toggle dark mode"> <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path> </svg> <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path> </svg> </button> <button id="mobile-menu-toggle" class="p-2 rounded-full text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800/80 transition-all" aria-label="Toggle menu" aria-expanded="false"> <svg id="menu-icon-open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> <svg id="menu-icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path> </svg> </button> </div> </div> </div> <!-- Mobile Menu Dropdown --> <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200/50 dark:border-slate-800/50"> <div class="px-4 py-3 space-y-1 glass">  <a href="/" class="block px-3 py-2.5 text-base font-medium text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white rounded-xl hover:bg-slate-100/80 dark:hover:bg-slate-800/80 transition-colors">
+Home
+</a> <a href="/editors-choice/" class="flex items-center gap-2 px-3 py-2.5 text-base font-medium text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white rounded-xl hover:bg-slate-100/80 dark:hover:bg-slate-800/80 transition-colors"> <svg class="w-5 h-5 text-brass-500" fill="currentColor" viewBox="0 0 24 24"> <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path> </svg>
+Editor's Choice
+</a> <a href="/conference-selections/" class="flex items-center gap-2 px-3 py-2.5 text-base font-medium text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white rounded-xl hover:bg-slate-100/80 dark:hover:bg-slate-800/80 transition-colors"> <svg class="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path> </svg>
+Conference Selections
+</a> <a href="/about/" class="block px-3 py-2.5 text-base font-medium text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white rounded-xl hover:bg-slate-100/80 dark:hover:bg-slate-800/80 transition-colors">
+About
+</a> <a href="/analytics/" class="block px-3 py-2.5 text-base font-medium text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white rounded-xl hover:bg-slate-100/80 dark:hover:bg-slate-800/80 transition-colors">
+Analytics
+</a> <a href="/my-papers/" class="flex items-center gap-2 px-3 py-2.5 text-base font-medium text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white rounded-xl hover:bg-slate-100/80 dark:hover:bg-slate-800/80 transition-colors"> <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path> </svg>
+My Papers
+<span id="bookmark-count-mobile" class="hidden px-1.5 py-0.5 text-xs font-semibold bg-brass-500 text-white rounded-full min-w-[1.25rem] text-center">0</span> </a> <a href="https://github.com/thecraigd/ai-safety-papers" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-3 py-2.5 text-base font-medium text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white rounded-xl hover:bg-slate-100/80 dark:hover:bg-slate-800/80 transition-colors"> <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"> <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path> </svg>
+GitHub
+</a> </div> </div> </header>  <main> <!-- Hero Section --> <section class="relative overflow-hidden hero-section"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8 sm:pt-16 sm:pb-12"> <div class="text-center"> <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brass-500/10 dark:bg-brass-500/15 border border-brass-500/30 mb-6 reveal shadow-[0_12px_24px_-18px_rgba(31,27,23,0.4)]" style="--delay: 0ms"> <svg class="w-4 h-4 text-brass-600 dark:text-brass-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path> </svg> <span class="text-[11px] font-semibold uppercase tracking-[0.24em] text-brass-700 dark:text-brass-200">Analytics Dashboard</span> </div> <h1 class="text-4xl sm:text-5xl font-display font-semibold tracking-tight mb-6 reveal hero-title" style="--delay: 90ms"> <span class="text-slate-900 dark:text-white">Research </span> <span class="gradient-text">Insights</span> </h1> <p class="hero-subtitle text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed reveal" style="--delay: 150ms">
+Explore trends and patterns in AI safety research with real-time analytics.
+</p> </div> </div> </section> <!-- Hero Chart: Category Trends Over Time --> <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12"> <div class="glass rounded-2xl p-4 sm:p-8 border border-slate-200/50 dark:border-slate-700/50 shadow-lg"> <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6"> <div> <h2 class="text-xl sm:text-2xl font-semibold text-slate-900 dark:text-white flex items-center gap-3"> <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brass-500 to-brass-600 flex items-center justify-center shrink-0"> <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path> </svg> </div>
+Category Trends Over Time
+</h2> <p class="text-sm text-slate-500 dark:text-slate-400 mt-2 ml-0 sm:ml-13">
+Click legend items to toggle categories on/off. Hover for details.
+</p> </div>  </div> <div class="h-72 sm:h-96 min-h-0"> <canvas id="categoryTrendsChart"></canvas> </div> </div> </section> <!-- Summary Stats --> <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12"> <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4"> <!-- Total Papers --> <div class="glass rounded-2xl p-6 border border-slate-200/50 dark:border-slate-700/50 hover-lift"> <div class="flex items-center gap-4"> <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-slate-900 to-slate-700 ring-1 ring-brass-400/40 flex items-center justify-center shrink-0"> <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path> </svg> </div> <div> <p class="text-sm font-medium text-slate-500 dark:text-slate-400">Safety-Relevant Papers</p> <p class="text-3xl font-bold text-slate-900 dark:text-white">1368</p> </div> </div> </div> <!-- Days Tracked --> <div class="glass rounded-2xl p-6 border border-slate-200/50 dark:border-slate-700/50 hover-lift"> <div class="flex items-center gap-4"> <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shrink-0"> <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path> </svg> </div> <div> <p class="text-sm font-medium text-slate-500 dark:text-slate-400">Days Tracked</p> <p class="text-3xl font-bold text-slate-900 dark:text-white">18</p> </div> </div> </div> <!-- Categories Used --> <div class="glass rounded-2xl p-6 border border-slate-200/50 dark:border-slate-700/50 hover-lift"> <div class="flex items-center gap-4"> <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center shrink-0"> <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path> </svg> </div> <div> <p class="text-sm font-medium text-slate-500 dark:text-slate-400">Categories Used</p> <p class="text-3xl font-bold text-slate-900 dark:text-white">10</p> </div> </div> </div> <!-- Avg Daily Papers --> <div class="glass rounded-2xl p-6 border border-slate-200/50 dark:border-slate-700/50 hover-lift"> <div class="flex items-center gap-4"> <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center shrink-0"> <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path> </svg> </div> <div> <p class="text-sm font-medium text-slate-500 dark:text-slate-400">Avg. Daily Papers</p> <p class="text-3xl font-bold text-slate-900 dark:text-white">76</p> </div> </div> </div> </div> </section> <!-- Research Velocity Metrics --> <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12"> <div class="glass rounded-2xl p-6 border border-slate-200/50 dark:border-slate-700/50"> <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6"> <h3 class="text-lg font-semibold text-slate-900 dark:text-white flex items-center gap-2"> <svg class="w-5 h-5 text-brass-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path> </svg>
+Research Velocity
+</h3> <p class="text-xs text-slate-500 dark:text-slate-400">
+Comparing Dec 24 - Jan 2 vs Dec 12 - Dec 23 </p> </div> <!-- Overall Velocity Cards --> <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 mb-6"> <!-- Period Comparison --> <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/50 dark:border-slate-700/50"> <div class="flex items-center justify-between mb-2"> <span class="text-sm font-medium text-slate-600 dark:text-slate-400">Recent Period</span> <div class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-red-100 dark:bg-red-900/40 text-red-700 dark:text-red-300"> ↓ 11%
+</div> </div> <div class="flex items-baseline gap-2"> <span class="text-2xl font-bold text-slate-900 dark:text-white">646</span> <span class="text-sm text-slate-500 dark:text-slate-400">papers</span> </div> <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">
+vs 722 in previous period
+</p> </div> <!-- Latest Day --> <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/50 dark:border-slate-700/50"> <div class="flex items-center justify-between mb-2"> <span class="text-sm font-medium text-slate-600 dark:text-slate-400">Latest Day</span> <div class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-red-100 dark:bg-red-900/40 text-red-700 dark:text-red-300"> ↓ 96%
+</div> </div> <div class="flex items-baseline gap-2"> <span class="text-2xl font-bold text-slate-900 dark:text-white">3</span> <span class="text-sm text-slate-500 dark:text-slate-400">papers</span> </div> <p class="text-xs text-slate-500 dark:text-slate-400 mt-1"> Jan 2 </p> </div> <!-- Daily Average Trend --> <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/50 dark:border-slate-700/50"> <div class="flex items-center justify-between mb-2"> <span class="text-sm font-medium text-slate-600 dark:text-slate-400">Avg per Day</span> </div> <div class="flex items-baseline gap-2"> <span class="text-2xl font-bold text-slate-900 dark:text-white"> 91 </span> <span class="text-sm text-slate-500 dark:text-slate-400">papers/day</span> </div> <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">
+across 15 active days
+</p> </div> </div> <!-- Category Velocity --> <div class="grid gap-4 lg:grid-cols-2"> <!-- Gaining Momentum --> <div> <h4 class="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3 flex items-center gap-2"> <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+Gaining Momentum
+</h4> <div class="space-y-2"> <div class="flex items-center justify-between p-3 rounded-lg bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200/50 dark:border-emerald-800/50"> <span class="font-medium text-slate-800 dark:text-slate-200 text-sm">Alignment Theory</span> <div class="flex items-center gap-3"> <span class="text-xs text-slate-500 dark:text-slate-400"> 270 → 289 </span> <span class="inline-flex items-center gap-0.5 text-emerald-600 dark:text-emerald-400 font-semibold text-sm">
+↑7%
+</span> </div> </div> </div> </div> <!-- Slowing Down --> <div> <h4 class="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3 flex items-center gap-2"> <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+Slowing Down
+</h4> <div class="space-y-2"> <div class="flex items-center justify-between p-3 rounded-lg bg-amber-50 dark:bg-amber-900/20 border border-amber-200/50 dark:border-amber-800/50"> <span class="font-medium text-slate-800 dark:text-slate-200 text-sm">Governance &amp; Policy</span> <div class="flex items-center gap-3"> <span class="text-xs text-slate-500 dark:text-slate-400"> 31 → 15 </span> <span class="inline-flex items-center gap-0.5 text-amber-600 dark:text-amber-400 font-semibold text-sm">
+↓52%
+</span> </div> </div><div class="flex items-center justify-between p-3 rounded-lg bg-amber-50 dark:bg-amber-900/20 border border-amber-200/50 dark:border-amber-800/50"> <span class="font-medium text-slate-800 dark:text-slate-200 text-sm">AI Control</span> <div class="flex items-center gap-3"> <span class="text-xs text-slate-500 dark:text-slate-400"> 35 → 19 </span> <span class="inline-flex items-center gap-0.5 text-amber-600 dark:text-amber-400 font-semibold text-sm">
+↓46%
+</span> </div> </div><div class="flex items-center justify-between p-3 rounded-lg bg-amber-50 dark:bg-amber-900/20 border border-amber-200/50 dark:border-amber-800/50"> <span class="font-medium text-slate-800 dark:text-slate-200 text-sm">I/O Classifiers</span> <div class="flex items-center gap-3"> <span class="text-xs text-slate-500 dark:text-slate-400"> 73 → 49 </span> <span class="inline-flex items-center gap-0.5 text-amber-600 dark:text-amber-400 font-semibold text-sm">
+↓33%
+</span> </div> </div> </div> </div> </div> </div> </section> <!-- Charts Row 1 --> <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12"> <div class="grid gap-6 lg:grid-cols-2"> <!-- Papers Over Time --> <div class="glass rounded-2xl p-4 sm:p-6 border border-slate-200/50 dark:border-slate-700/50"> <div class="mb-4"> <h3 class="text-base sm:text-lg font-semibold text-slate-900 dark:text-white flex items-center gap-2"> <svg class="w-5 h-5 text-brass-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path> </svg>
+Papers Over Time
+</h3> <p class="text-xs text-slate-500 dark:text-slate-400 mt-1"> Showing total papers scanned vs. safety-relevant papers </p> </div> <div class="h-56 sm:h-64 min-h-0"> <canvas id="papersOverTimeChart"></canvas> </div> </div> <!-- Category Distribution --> <div class="glass rounded-2xl p-4 sm:p-6 border border-slate-200/50 dark:border-slate-700/50"> <h3 class="text-base sm:text-lg font-semibold text-slate-900 dark:text-white mb-4 flex items-center gap-2"> <svg class="w-5 h-5 text-brass-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path> </svg>
+Category Distribution
+</h3> <div class="h-64 sm:h-64 min-h-0 flex items-center justify-center"> <canvas id="categoryChart"></canvas> </div> </div> </div> </section> <!-- Charts Row 2 --> <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12"> <div class="grid gap-6 lg:grid-cols-2"> <!-- Relevance Distribution --> <div class="glass rounded-2xl p-4 sm:p-6 border border-slate-200/50 dark:border-slate-700/50"> <h3 class="text-base sm:text-lg font-semibold text-slate-900 dark:text-white mb-4 flex items-center gap-2"> <svg class="w-5 h-5 text-brass-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path> </svg>
+Relevance Score Distribution
+</h3> <div class="h-56 sm:h-64 min-h-0"> <canvas id="relevanceChart"></canvas> </div> </div> <!-- Top arXiv Categories --> <div class="glass rounded-2xl p-4 sm:p-6 border border-slate-200/50 dark:border-slate-700/50"> <h3 class="text-base sm:text-lg font-semibold text-slate-900 dark:text-white mb-4 flex items-center gap-2"> <svg class="w-5 h-5 text-brass-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path> </svg>
+Top arXiv Categories
+</h3> <div class="h-56 sm:h-64 min-h-0"> <canvas id="arxivChart"></canvas> </div> </div> </div> </section> <!-- Category Breakdown Table --> <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12"> <div class="glass rounded-2xl p-6 border border-slate-200/50 dark:border-slate-700/50"> <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-6 flex items-center gap-2"> <svg class="w-5 h-5 text-brass-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path> </svg>
+Detailed Category Breakdown
+</h3> <div class="overflow-x-auto"> <table class="w-full"> <thead> <tr class="text-left border-b border-slate-200 dark:border-slate-700"> <th class="pb-3 font-semibold text-slate-900 dark:text-white">Category</th> <th class="pb-3 font-semibold text-slate-900 dark:text-white text-right">Papers</th> <th class="pb-3 font-semibold text-slate-900 dark:text-white text-right">% of Total</th> <th class="pb-3 font-semibold text-slate-900 dark:text-white">Distribution</th> </tr> </thead> <tbody class="divide-y divide-slate-100 dark:divide-slate-800"> <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"> <td class="py-4"> <div class="flex items-center gap-3"> <div class="w-3 h-3 rounded-full" style="background-color: #1d7874"></div> <span class="font-medium text-slate-900 dark:text-white">Alignment Theory</span> </div> </td> <td class="py-4 text-right font-medium text-slate-700 dark:text-slate-300">559</td> <td class="py-4 text-right text-slate-500 dark:text-slate-400">26.6%</td> <td class="py-4"> <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2"> <div class="h-2 rounded-full" style="width: 26.6%; background-color: #1d7874"></div> </div> </td> </tr><tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"> <td class="py-4"> <div class="flex items-center gap-3"> <div class="w-3 h-3 rounded-full" style="background-color: #cf8d2e"></div> <span class="font-medium text-slate-900 dark:text-white">Evaluations &amp; Benchmarks</span> </div> </td> <td class="py-4 text-right font-medium text-slate-700 dark:text-slate-300">432</td> <td class="py-4 text-right text-slate-500 dark:text-slate-400">20.5%</td> <td class="py-4"> <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2"> <div class="h-2 rounded-full" style="width: 20.5%; background-color: #cf8d2e"></div> </div> </td> </tr><tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"> <td class="py-4"> <div class="flex items-center gap-3"> <div class="w-3 h-3 rounded-full" style="background-color: #e56b6f"></div> <span class="font-medium text-slate-900 dark:text-white">Robustness &amp; Security</span> </div> </td> <td class="py-4 text-right font-medium text-slate-700 dark:text-slate-300">358</td> <td class="py-4 text-right text-slate-500 dark:text-slate-400">17.0%</td> <td class="py-4"> <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2"> <div class="h-2 rounded-full" style="width: 17.0%; background-color: #e56b6f"></div> </div> </td> </tr><tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"> <td class="py-4"> <div class="flex items-center gap-3"> <div class="w-3 h-3 rounded-full" style="background-color: #355070"></div> <span class="font-medium text-slate-900 dark:text-white">Agent Safety</span> </div> </td> <td class="py-4 text-right font-medium text-slate-700 dark:text-slate-300">260</td> <td class="py-4 text-right text-slate-500 dark:text-slate-400">12.4%</td> <td class="py-4"> <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2"> <div class="h-2 rounded-full" style="width: 12.4%; background-color: #355070"></div> </div> </td> </tr><tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"> <td class="py-4"> <div class="flex items-center gap-3"> <div class="w-3 h-3 rounded-full" style="background-color: #6d597a"></div> <span class="font-medium text-slate-900 dark:text-white">RLHF</span> </div> </td> <td class="py-4 text-right font-medium text-slate-700 dark:text-slate-300">136</td> <td class="py-4 text-right text-slate-500 dark:text-slate-400">6.5%</td> <td class="py-4"> <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2"> <div class="h-2 rounded-full" style="width: 6.5%; background-color: #6d597a"></div> </div> </td> </tr><tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"> <td class="py-4"> <div class="flex items-center gap-3"> <div class="w-3 h-3 rounded-full" style="background-color: #b56576"></div> <span class="font-medium text-slate-900 dark:text-white">I/O Classifiers</span> </div> </td> <td class="py-4 text-right font-medium text-slate-700 dark:text-slate-300">122</td> <td class="py-4 text-right text-slate-500 dark:text-slate-400">5.8%</td> <td class="py-4"> <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2"> <div class="h-2 rounded-full" style="width: 5.8%; background-color: #b56576"></div> </div> </td> </tr><tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"> <td class="py-4"> <div class="flex items-center gap-3"> <div class="w-3 h-3 rounded-full" style="background-color: #87a878"></div> <span class="font-medium text-slate-900 dark:text-white">Mechanistic Interpretability</span> </div> </td> <td class="py-4 text-right font-medium text-slate-700 dark:text-slate-300">93</td> <td class="py-4 text-right text-slate-500 dark:text-slate-400">4.4%</td> <td class="py-4"> <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2"> <div class="h-2 rounded-full" style="width: 4.4%; background-color: #87a878"></div> </div> </td> </tr><tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"> <td class="py-4"> <div class="flex items-center gap-3"> <div class="w-3 h-3 rounded-full" style="background-color: #c9ada7"></div> <span class="font-medium text-slate-900 dark:text-white">AI Control</span> </div> </td> <td class="py-4 text-right font-medium text-slate-700 dark:text-slate-300">54</td> <td class="py-4 text-right text-slate-500 dark:text-slate-400">2.6%</td> <td class="py-4"> <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2"> <div class="h-2 rounded-full" style="width: 2.6%; background-color: #c9ada7"></div> </div> </td> </tr><tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"> <td class="py-4"> <div class="flex items-center gap-3"> <div class="w-3 h-3 rounded-full" style="background-color: #577590"></div> <span class="font-medium text-slate-900 dark:text-white">Governance &amp; Policy</span> </div> </td> <td class="py-4 text-right font-medium text-slate-700 dark:text-slate-300">46</td> <td class="py-4 text-right text-slate-500 dark:text-slate-400">2.2%</td> <td class="py-4"> <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2"> <div class="h-2 rounded-full" style="width: 2.2%; background-color: #577590"></div> </div> </td> </tr><tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"> <td class="py-4"> <div class="flex items-center gap-3"> <div class="w-3 h-3 rounded-full" style="background-color: #9c6644"></div> <span class="font-medium text-slate-900 dark:text-white">Position Paper</span> </div> </td> <td class="py-4 text-right font-medium text-slate-700 dark:text-slate-300">44</td> <td class="py-4 text-right text-slate-500 dark:text-slate-400">2.1%</td> <td class="py-4"> <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2"> <div class="h-2 rounded-full" style="width: 2.1%; background-color: #9c6644"></div> </div> </td> </tr> </tbody> </table> </div> </div> </section> <!-- Top Authors (if any) --> <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12"> <div class="glass rounded-2xl p-6 border border-slate-200/50 dark:border-slate-700/50"> <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-6 flex items-center gap-2"> <svg class="w-5 h-5 text-brass-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path> </svg>
+Frequent Authors
+</h3> <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3"> <div class="flex items-center gap-3 p-3 rounded-lg bg-slate-50 dark:bg-slate-800/50"> <div class="w-8 h-8 rounded-full bg-gradient-to-br from-slate-900 to-slate-700 ring-1 ring-brass-400/40 flex items-center justify-center text-white font-bold text-sm"> 1 </div> <div class="flex-1 min-w-0"> <p class="font-medium text-slate-900 dark:text-white truncate">Wei Zhang</p> <p class="text-sm text-slate-500 dark:text-slate-400">5 papers</p> </div> </div><div class="flex items-center gap-3 p-3 rounded-lg bg-slate-50 dark:bg-slate-800/50"> <div class="w-8 h-8 rounded-full bg-gradient-to-br from-slate-900 to-slate-700 ring-1 ring-brass-400/40 flex items-center justify-center text-white font-bold text-sm"> 2 </div> <div class="flex-1 min-w-0"> <p class="font-medium text-slate-900 dark:text-white truncate">Nathan Kallus</p> <p class="text-sm text-slate-500 dark:text-slate-400">5 papers</p> </div> </div><div class="flex items-center gap-3 p-3 rounded-lg bg-slate-50 dark:bg-slate-800/50"> <div class="w-8 h-8 rounded-full bg-gradient-to-br from-slate-900 to-slate-700 ring-1 ring-brass-400/40 flex items-center justify-center text-white font-bold text-sm"> 3 </div> <div class="flex-1 min-w-0"> <p class="font-medium text-slate-900 dark:text-white truncate">Khaza Anuarul Hoque</p> <p class="text-sm text-slate-500 dark:text-slate-400">4 papers</p> </div> </div><div class="flex items-center gap-3 p-3 rounded-lg bg-slate-50 dark:bg-slate-800/50"> <div class="w-8 h-8 rounded-full bg-gradient-to-br from-slate-900 to-slate-700 ring-1 ring-brass-400/40 flex items-center justify-center text-white font-bold text-sm"> 4 </div> <div class="flex-1 min-w-0"> <p class="font-medium text-slate-900 dark:text-white truncate">Hao Li</p> <p class="text-sm text-slate-500 dark:text-slate-400">4 papers</p> </div> </div><div class="flex items-center gap-3 p-3 rounded-lg bg-slate-50 dark:bg-slate-800/50"> <div class="w-8 h-8 rounded-full bg-gradient-to-br from-slate-900 to-slate-700 ring-1 ring-brass-400/40 flex items-center justify-center text-white font-bold text-sm"> 5 </div> <div class="flex-1 min-w-0"> <p class="font-medium text-slate-900 dark:text-white truncate">Lars van der Laan</p> <p class="text-sm text-slate-500 dark:text-slate-400">4 papers</p> </div> </div><div class="flex items-center gap-3 p-3 rounded-lg bg-slate-50 dark:bg-slate-800/50"> <div class="w-8 h-8 rounded-full bg-gradient-to-br from-slate-900 to-slate-700 ring-1 ring-brass-400/40 flex items-center justify-center text-white font-bold text-sm"> 6 </div> <div class="flex-1 min-w-0"> <p class="font-medium text-slate-900 dark:text-white truncate">Jiacai Liu</p> <p class="text-sm text-slate-500 dark:text-slate-400">4 papers</p> </div> </div><div class="flex items-center gap-3 p-3 rounded-lg bg-slate-50 dark:bg-slate-800/50"> <div class="w-8 h-8 rounded-full bg-gradient-to-br from-slate-900 to-slate-700 ring-1 ring-brass-400/40 flex items-center justify-center text-white font-bold text-sm"> 7 </div> <div class="flex-1 min-w-0"> <p class="font-medium text-slate-900 dark:text-white truncate">Jiawei Chen</p> <p class="text-sm text-slate-500 dark:text-slate-400">3 papers</p> </div> </div><div class="flex items-center gap-3 p-3 rounded-lg bg-slate-50 dark:bg-slate-800/50"> <div class="w-8 h-8 rounded-full bg-gradient-to-br from-slate-900 to-slate-700 ring-1 ring-brass-400/40 flex items-center justify-center text-white font-bold text-sm"> 8 </div> <div class="flex-1 min-w-0"> <p class="font-medium text-slate-900 dark:text-white truncate">Istiak Ahmed</p> <p class="text-sm text-slate-500 dark:text-slate-400">3 papers</p> </div> </div><div class="flex items-center gap-3 p-3 rounded-lg bg-slate-50 dark:bg-slate-800/50"> <div class="w-8 h-8 rounded-full bg-gradient-to-br from-slate-900 to-slate-700 ring-1 ring-brass-400/40 flex items-center justify-center text-white font-bold text-sm"> 9 </div> <div class="flex-1 min-w-0"> <p class="font-medium text-slate-900 dark:text-white truncate">Ripan Kumar Kundu</p> <p class="text-sm text-slate-500 dark:text-slate-400">3 papers</p> </div> </div><div class="flex items-center gap-3 p-3 rounded-lg bg-slate-50 dark:bg-slate-800/50"> <div class="w-8 h-8 rounded-full bg-gradient-to-br from-slate-900 to-slate-700 ring-1 ring-brass-400/40 flex items-center justify-center text-white font-bold text-sm"> 10 </div> <div class="flex-1 min-w-0"> <p class="font-medium text-slate-900 dark:text-white truncate">Tin Stribor Sohn</p> <p class="text-sm text-slate-500 dark:text-slate-400">3 papers</p> </div> </div> </div> </div> </section> <!-- Daily Stats Table --> <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16"> <div class="glass rounded-2xl p-6 border border-slate-200/50 dark:border-slate-700/50"> <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-6 flex items-center gap-2"> <svg class="w-5 h-5 text-brass-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path> </svg>
+Daily Statistics
+</h3> <div class="overflow-x-auto"> <table class="w-full"> <thead> <tr class="text-left border-b border-slate-200 dark:border-slate-700"> <th class="pb-3 font-semibold text-slate-900 dark:text-white">Date</th> <th class="pb-3 font-semibold text-slate-900 dark:text-white text-right">Papers</th> <th class="pb-3 font-semibold text-slate-900 dark:text-white">Top Categories</th> </tr> </thead> <tbody class="divide-y divide-slate-100 dark:divide-slate-800"> <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"> <td class="py-4"> <span class="font-medium text-slate-900 dark:text-white"> Fri, Jan 2 </span> </td> <td class="py-4 text-right"> <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-brass-100 dark:bg-brass-900/40 text-brass-800 dark:text-brass-200"> 3 </span> </td> <td class="py-4"> <div class="flex flex-wrap gap-1.5"> <span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Alignment Theory </span><span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Evaluations &amp; Benchmarks </span> </div> </td> </tr><tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"> <td class="py-4"> <span class="font-medium text-slate-900 dark:text-white"> Thu, Jan 1 </span> </td> <td class="py-4 text-right"> <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-brass-100 dark:bg-brass-900/40 text-brass-800 dark:text-brass-200"> 78 </span> </td> <td class="py-4"> <div class="flex flex-wrap gap-1.5"> <span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Alignment Theory </span><span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Evaluations &amp; Benchmarks </span><span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Agent Safety </span> </div> </td> </tr><tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"> <td class="py-4"> <span class="font-medium text-slate-900 dark:text-white"> Wed, Dec 31 </span> </td> <td class="py-4 text-right"> <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-brass-100 dark:bg-brass-900/40 text-brass-800 dark:text-brass-200"> 103 </span> </td> <td class="py-4"> <div class="flex flex-wrap gap-1.5"> <span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Alignment Theory </span><span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Evaluations &amp; Benchmarks </span><span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Robustness &amp; Security </span> </div> </td> </tr><tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"> <td class="py-4"> <span class="font-medium text-slate-900 dark:text-white"> Tue, Dec 30 </span> </td> <td class="py-4 text-right"> <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-brass-100 dark:bg-brass-900/40 text-brass-800 dark:text-brass-200"> 145 </span> </td> <td class="py-4"> <div class="flex flex-wrap gap-1.5"> <span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Alignment Theory </span><span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Evaluations &amp; Benchmarks </span><span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Robustness &amp; Security </span> </div> </td> </tr><tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"> <td class="py-4"> <span class="font-medium text-slate-900 dark:text-white"> Mon, Dec 29 </span> </td> <td class="py-4 text-right"> <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-brass-100 dark:bg-brass-900/40 text-brass-800 dark:text-brass-200"> 61 </span> </td> <td class="py-4"> <div class="flex flex-wrap gap-1.5"> <span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Alignment Theory </span><span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Robustness &amp; Security </span><span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Evaluations &amp; Benchmarks </span> </div> </td> </tr><tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"> <td class="py-4"> <span class="font-medium text-slate-900 dark:text-white"> Sun, Dec 28 </span> </td> <td class="py-4 text-right"> <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-brass-100 dark:bg-brass-900/40 text-brass-800 dark:text-brass-200"> 71 </span> </td> <td class="py-4"> <div class="flex flex-wrap gap-1.5"> <span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Alignment Theory </span><span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Evaluations &amp; Benchmarks </span><span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Robustness &amp; Security </span> </div> </td> </tr><tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"> <td class="py-4"> <span class="font-medium text-slate-900 dark:text-white"> Thu, Dec 25 </span> </td> <td class="py-4 text-right"> <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-brass-100 dark:bg-brass-900/40 text-brass-800 dark:text-brass-200"> 70 </span> </td> <td class="py-4"> <div class="flex flex-wrap gap-1.5"> <span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Alignment Theory </span><span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Evaluations &amp; Benchmarks </span><span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Robustness &amp; Security </span> </div> </td> </tr><tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"> <td class="py-4"> <span class="font-medium text-slate-900 dark:text-white"> Wed, Dec 24 </span> </td> <td class="py-4 text-right"> <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-brass-100 dark:bg-brass-900/40 text-brass-800 dark:text-brass-200"> 115 </span> </td> <td class="py-4"> <div class="flex flex-wrap gap-1.5"> <span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Alignment Theory </span><span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Evaluations &amp; Benchmarks </span><span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Robustness &amp; Security </span> </div> </td> </tr><tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"> <td class="py-4"> <span class="font-medium text-slate-900 dark:text-white"> Tue, Dec 23 </span> </td> <td class="py-4 text-right"> <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-brass-100 dark:bg-brass-900/40 text-brass-800 dark:text-brass-200"> 173 </span> </td> <td class="py-4"> <div class="flex flex-wrap gap-1.5"> <span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Alignment Theory </span><span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Evaluations &amp; Benchmarks </span><span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Robustness &amp; Security </span> </div> </td> </tr><tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"> <td class="py-4"> <span class="font-medium text-slate-900 dark:text-white"> Mon, Dec 22 </span> </td> <td class="py-4 text-right"> <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-brass-100 dark:bg-brass-900/40 text-brass-800 dark:text-brass-200"> 127 </span> </td> <td class="py-4"> <div class="flex flex-wrap gap-1.5"> <span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Alignment Theory </span><span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Evaluations &amp; Benchmarks </span><span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Robustness &amp; Security </span> </div> </td> </tr><tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"> <td class="py-4"> <span class="font-medium text-slate-900 dark:text-white"> Sun, Dec 21 </span> </td> <td class="py-4 text-right"> <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-brass-100 dark:bg-brass-900/40 text-brass-800 dark:text-brass-200"> 272 </span> </td> <td class="py-4"> <div class="flex flex-wrap gap-1.5"> <span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Alignment Theory </span><span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Evaluations &amp; Benchmarks </span><span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Robustness &amp; Security </span> </div> </td> </tr><tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"> <td class="py-4"> <span class="font-medium text-slate-900 dark:text-white"> Thu, Dec 18 </span> </td> <td class="py-4 text-right"> <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-brass-100 dark:bg-brass-900/40 text-brass-800 dark:text-brass-200"> 0 </span> </td> <td class="py-4"> <div class="flex flex-wrap gap-1.5">  </div> </td> </tr><tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"> <td class="py-4"> <span class="font-medium text-slate-900 dark:text-white"> Wed, Dec 17 </span> </td> <td class="py-4 text-right"> <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-brass-100 dark:bg-brass-900/40 text-brass-800 dark:text-brass-200"> 0 </span> </td> <td class="py-4"> <div class="flex flex-wrap gap-1.5">  </div> </td> </tr><tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"> <td class="py-4"> <span class="font-medium text-slate-900 dark:text-white"> Tue, Dec 16 </span> </td> <td class="py-4 text-right"> <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-brass-100 dark:bg-brass-900/40 text-brass-800 dark:text-brass-200"> 0 </span> </td> <td class="py-4"> <div class="flex flex-wrap gap-1.5">  </div> </td> </tr><tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"> <td class="py-4"> <span class="font-medium text-slate-900 dark:text-white"> Mon, Dec 15 </span> </td> <td class="py-4 text-right"> <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-brass-100 dark:bg-brass-900/40 text-brass-800 dark:text-brass-200"> 31 </span> </td> <td class="py-4"> <div class="flex flex-wrap gap-1.5"> <span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Evaluations &amp; Benchmarks </span><span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Robustness &amp; Security </span><span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Agent Safety </span> </div> </td> </tr><tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"> <td class="py-4"> <span class="font-medium text-slate-900 dark:text-white"> Sun, Dec 14 </span> </td> <td class="py-4 text-right"> <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-brass-100 dark:bg-brass-900/40 text-brass-800 dark:text-brass-200"> 31 </span> </td> <td class="py-4"> <div class="flex flex-wrap gap-1.5"> <span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Evaluations &amp; Benchmarks </span><span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Robustness &amp; Security </span><span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Agent Safety </span> </div> </td> </tr><tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"> <td class="py-4"> <span class="font-medium text-slate-900 dark:text-white"> Sat, Dec 13 </span> </td> <td class="py-4 text-right"> <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-brass-100 dark:bg-brass-900/40 text-brass-800 dark:text-brass-200"> 28 </span> </td> <td class="py-4"> <div class="flex flex-wrap gap-1.5"> <span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Evaluations &amp; Benchmarks </span><span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Robustness &amp; Security </span><span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Alignment Theory </span> </div> </td> </tr><tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"> <td class="py-4"> <span class="font-medium text-slate-900 dark:text-white"> Fri, Dec 12 </span> </td> <td class="py-4 text-right"> <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-brass-100 dark:bg-brass-900/40 text-brass-800 dark:text-brass-200"> 60 </span> </td> <td class="py-4"> <div class="flex flex-wrap gap-1.5"> <span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Evaluations &amp; Benchmarks </span><span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> Robustness &amp; Security </span><span class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"> I/O Classifiers </span> </div> </td> </tr> </tbody> </table> </div> </div> </section> </main> <footer class="border-t border-slate-200/50 dark:border-slate-800/50 mt-16 bg-white/50 dark:bg-slate-900/50"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12"> <div class="flex flex-col gap-8"> <!-- Main footer content --> <div class="flex flex-col md:flex-row items-center justify-between gap-6"> <div class="flex items-center gap-3"> <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-slate-900 to-slate-700 ring-1 ring-brass-400/40 flex items-center justify-center"> <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path> </svg> </div> <div> <div class="font-semibold text-slate-900 dark:text-white">The Guardrail</div> <p class="text-sm text-slate-500 dark:text-slate-400">
+Thank you to arXiv for open access interoperability.
+</p> </div> </div> <div class="flex items-center gap-6"> <a href="/" class="text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors">
+Home
+</a> <a href="/editors-choice/" class="text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors">
+Editor's Choice
+</a> <a href="/about/" class="text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors">
+About
+</a> <a href="/analytics/" class="text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors">
+Analytics
+</a> <a href="https://github.com/thecraigd/ai-safety-papers" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors">
+GitHub
+</a> </div> </div> <!-- Bottom section with URL, contact, and copyright --> <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-slate-200/30 dark:border-slate-700/30"> <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-xs text-slate-500 dark:text-slate-500"> <span class="font-medium">www.theguardrail.net</span> <span class="hidden sm:inline text-slate-300 dark:text-slate-700">|</span> <span>contact [at] theguardrail [dot] net</span> </div> <p class="text-xs text-slate-400 dark:text-slate-600">
+&copy; 2026 The Guardrail
+</p> </div> </div> </div> </footer>  </body></html> <div id="chart-data" class="hidden" data-chart="{&#34;dateLabels&#34;:[&#34;Dec 12&#34;,&#34;Dec 13&#34;,&#34;Dec 14&#34;,&#34;Dec 15&#34;,&#34;Dec 21&#34;,&#34;Dec 22&#34;,&#34;Dec 23&#34;,&#34;Dec 24&#34;,&#34;Dec 25&#34;,&#34;Dec 28&#34;,&#34;Dec 29&#34;,&#34;Dec 30&#34;,&#34;Dec 31&#34;,&#34;Jan 1&#34;,&#34;Jan 2&#34;],&#34;paperCounts&#34;:[60,28,31,31,272,127,173,115,70,71,61,145,103,78,3],&#34;rawCounts&#34;:[60,28,31,31,672,653,413,554,430,332,286,331,444,353,162],&#34;hasRawCountData&#34;:true,&#34;categoryLabels&#34;:[&#34;Agent Safety&#34;,&#34;AI Control&#34;,&#34;Robustness &#38; Security&#34;,&#34;I/O Classifiers&#34;,&#34;Evaluations &#38; Benchmarks&#34;,&#34;RLHF&#34;,&#34;Alignment Theory&#34;,&#34;Mechanistic Interpretability&#34;,&#34;Governance &#38; Policy&#34;,&#34;Position Paper&#34;],&#34;categoryValues&#34;:[260,54,358,122,432,136,559,93,46,44],&#34;relevanceLabels&#34;:[&#34;0.6-0.7&#34;,&#34;0.7-0.8&#34;,&#34;0.8-0.9&#34;,&#34;0.9-1.0&#34;],&#34;relevanceValues&#34;:[15,178,382,793],&#34;arxivLabels&#34;:[&#34;cs.AI&#34;,&#34;cs.LG&#34;,&#34;cs.CV&#34;,&#34;cs.CL&#34;,&#34;cs.CR&#34;,&#34;cs.RO&#34;,&#34;stat.ML&#34;,&#34;cs.MA&#34;,&#34;cs.SE&#34;,&#34;cs.CY&#34;],&#34;arxivValues&#34;:[658,526,362,313,127,85,63,48,44,41],&#34;categoryColors&#34;:[&#34;#1d7874&#34;,&#34;#cf8d2e&#34;,&#34;#e56b6f&#34;,&#34;#355070&#34;,&#34;#6d597a&#34;,&#34;#b56576&#34;,&#34;#87a878&#34;,&#34;#c9ada7&#34;,&#34;#577590&#34;,&#34;#9c6644&#34;],&#34;categoryTimeSeries&#34;:{&#34;agent-safety&#34;:[7,4,7,7,54,19,33,24,13,12,10,30,24,16,0],&#34;ai-control&#34;:[4,3,5,7,8,3,5,8,2,2,2,1,3,1,0],&#34;robustness-security&#34;:[27,11,17,18,67,29,36,26,19,16,19,33,25,15,0],&#34;io-classifiers&#34;:[14,4,4,0,25,10,16,12,7,10,3,10,5,2,0],&#34;evaluations-benchmarks&#34;:[39,19,21,26,80,33,38,27,21,22,12,46,28,19,1],&#34;rlhf&#34;:[3,2,3,3,31,11,18,10,2,6,8,22,7,10,0],&#34;alignment-theory&#34;:[10,6,5,5,112,59,73,48,32,36,24,63,49,35,2],&#34;mechanistic-interpretability&#34;:[4,2,5,1,16,7,19,9,3,5,4,6,6,6,0],&#34;governance-policy&#34;:[4,2,2,3,10,5,5,1,2,2,2,2,3,3,0],&#34;position-paper&#34;:[2,0,0,1,11,5,6,1,0,4,3,5,3,3,0]},&#34;categoryIdToName&#34;:{&#34;agent-safety&#34;:&#34;Agent Safety&#34;,&#34;ai-control&#34;:&#34;AI Control&#34;,&#34;robustness-security&#34;:&#34;Robustness &#38; Security&#34;,&#34;io-classifiers&#34;:&#34;I/O Classifiers&#34;,&#34;evaluations-benchmarks&#34;:&#34;Evaluations &#38; Benchmarks&#34;,&#34;rlhf&#34;:&#34;RLHF&#34;,&#34;alignment-theory&#34;:&#34;Alignment Theory&#34;,&#34;mechanistic-interpretability&#34;:&#34;Mechanistic Interpretability&#34;,&#34;governance-policy&#34;:&#34;Governance &#38; Policy&#34;,&#34;position-paper&#34;:&#34;Position Paper&#34;},&#34;allCategories&#34;:[&#34;agent-safety&#34;,&#34;ai-control&#34;,&#34;robustness-security&#34;,&#34;io-classifiers&#34;,&#34;evaluations-benchmarks&#34;,&#34;rlhf&#34;,&#34;alignment-theory&#34;,&#34;mechanistic-interpretability&#34;,&#34;governance-policy&#34;,&#34;position-paper&#34;],&#34;topGrowthCategory&#34;:null}"></div>  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var dataEl = document.getElementById('chart-data');
+    if (!dataEl) return;
+
+    var chartData = JSON.parse(dataEl.dataset.chart);
+    var dateLabels = chartData.dateLabels;
+    var paperCounts = chartData.paperCounts;
+    var rawCounts = chartData.rawCounts;
+    var hasRawCountData = chartData.hasRawCountData;
+    var categoryLabels = chartData.categoryLabels;
+    var categoryValues = chartData.categoryValues;
+    var relevanceLabels = chartData.relevanceLabels;
+    var relevanceValues = chartData.relevanceValues;
+    var arxivLabels = chartData.arxivLabels;
+    var arxivValues = chartData.arxivValues;
+    var categoryColors = chartData.categoryColors;
+    // New data for category trends chart
+    var categoryTimeSeries = chartData.categoryTimeSeries;
+    var categoryIdToName = chartData.categoryIdToName;
+    var allCategories = chartData.allCategories;
+
+    var isDark = document.documentElement.classList.contains('dark');
+    var textColor = isDark ? '#e7e2d9' : '#2a2723';
+    var gridColor = isDark ? 'rgba(231, 226, 217, 0.08)' : 'rgba(60, 55, 48, 0.12)';
+
+    // Store chart instances for resize handling
+    var charts = [];
+
+    // Category Trends Hero Chart (stacked area)
+    var trendsCtx = document.getElementById('categoryTrendsChart');
+    if (trendsCtx && categoryTimeSeries && allCategories) {
+      // Sort categories by total count - smallest on top for better stacking visualization
+      // (Chart.js stacks from bottom to top, so we reverse to put largest at bottom)
+      var sortedCategories = allCategories.slice().sort(function(a, b) {
+        var sumA = categoryTimeSeries[a].reduce(function(acc, v) { return acc + v; }, 0);
+        var sumB = categoryTimeSeries[b].reduce(function(acc, v) { return acc + v; }, 0);
+        return sumA - sumB; // Smallest first (will be on top of stack)
+      });
+
+      // Build datasets for each category - proper stacked area chart
+      var trendDatasets = sortedCategories.map(function(catId, index) {
+        var color = categoryColors[index % categoryColors.length];
+        return {
+          label: categoryIdToName[catId] || catId,
+          data: categoryTimeSeries[catId],
+          backgroundColor: color + 'cc', // 80% opacity for solid fill
+          borderColor: color,
+          borderWidth: 1,
+          fill: 'origin', // Stack from origin (y=0)
+          tension: 0.4,
+          pointRadius: 0, // Hide points for cleaner stacked look
+          pointHoverRadius: 4,
+          pointBackgroundColor: color
+        };
+      });
+
+      charts.push(new Chart(trendsCtx, {
+        type: 'line',
+        data: {
+          labels: dateLabels,
+          datasets: trendDatasets
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          resizeDelay: 0,
+          interaction: {
+            mode: 'index',
+            intersect: false
+          },
+          plugins: {
+            legend: {
+              position: 'bottom',
+              labels: {
+                color: textColor,
+                usePointStyle: true,
+                pointStyle: 'circle',
+                padding: 12,
+                font: { size: 11 }
+              },
+              onClick: function(e, legendItem, legend) {
+                // Default toggle behavior
+                var index = legendItem.datasetIndex;
+                var ci = legend.chart;
+                var meta = ci.getDatasetMeta(index);
+                meta.hidden = meta.hidden === null ? !ci.data.datasets[index].hidden : null;
+                ci.update();
+              }
+            },
+            tooltip: {
+              backgroundColor: isDark ? 'rgba(31, 27, 23, 0.95)' : 'rgba(255, 255, 255, 0.95)',
+              titleColor: isDark ? '#e7e2d9' : '#2a2723',
+              bodyColor: isDark ? '#c4bfb6' : '#5c5650',
+              borderColor: isDark ? 'rgba(179, 135, 74, 0.3)' : 'rgba(179, 135, 74, 0.4)',
+              borderWidth: 1,
+              padding: 12,
+              displayColors: true,
+              callbacks: {
+                title: function(context) {
+                  return context[0].label;
+                },
+                label: function(context) {
+                  return context.dataset.label + ': ' + context.raw + ' papers';
+                },
+                footer: function(context) {
+                  var total = context.reduce(function(sum, item) {
+                    return sum + (item.raw || 0);
+                  }, 0);
+                  return 'Total: ' + total + ' papers';
+                }
+              }
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              stacked: true, // Enable stacking on y-axis
+              ticks: { color: textColor },
+              grid: { color: gridColor },
+              title: {
+                display: true,
+                text: 'Total Papers per Day',
+                color: textColor,
+                font: { size: 12 }
+              }
+            },
+            x: {
+              stacked: true, // Enable stacking on x-axis
+              ticks: { color: textColor, maxRotation: 45 },
+              grid: { display: false }
+            }
+          }
+        }
+      }));
+    }
+
+    var papersCtx = document.getElementById('papersOverTimeChart');
+    if (papersCtx) {
+      // Build datasets array - always include safety-relevant papers
+      var datasets = [{
+        label: 'Safety-Relevant',
+        data: paperCounts,
+        borderColor: '#b3874a',
+        backgroundColor: 'rgba(179, 135, 74, 0.14)',
+        fill: true,
+        tension: 0.4,
+        pointBackgroundColor: '#b3874a',
+        pointBorderColor: '#f9f4ee',
+        pointBorderWidth: 2,
+        pointRadius: 5,
+        pointHoverRadius: 7,
+        order: 1
+      }];
+
+      // Add total papers scanned line if we have that data
+      if (hasRawCountData) {
+        datasets.unshift({
+          label: 'Total Scanned',
+          data: rawCounts,
+          borderColor: '#7d7163',
+          backgroundColor: 'rgba(125, 113, 99, 0.08)',
+          fill: true,
+          tension: 0.4,
+          pointBackgroundColor: '#7d7163',
+          pointBorderColor: '#f9f4ee',
+          pointBorderWidth: 2,
+          pointRadius: 4,
+          pointHoverRadius: 6,
+          borderDash: [5, 5],
+          order: 2
+        });
+      }
+
+      charts.push(new Chart(papersCtx, {
+        type: 'line',
+        data: {
+          labels: dateLabels,
+          datasets: datasets
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          resizeDelay: 0,
+          plugins: {
+            legend: {
+              display: hasRawCountData,
+              position: 'top',
+              labels: { color: textColor, usePointStyle: true, padding: 15 }
+            }
+          },
+          scales: {
+            y: { beginAtZero: true, ticks: { color: textColor }, grid: { color: gridColor } },
+            x: { ticks: { color: textColor }, grid: { display: false } }
+          }
+        }
+      }));
+    }
+
+    var categoryCtx = document.getElementById('categoryChart');
+    if (categoryCtx) {
+      // Determine legend position based on viewport width
+      var isNarrow = window.innerWidth < 500;
+      charts.push(new Chart(categoryCtx, {
+        type: 'doughnut',
+        data: {
+          labels: categoryLabels,
+          datasets: [{
+            data: categoryValues,
+            backgroundColor: categoryColors,
+            borderWidth: 0,
+            hoverOffset: 4
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          resizeDelay: 0,
+          plugins: {
+            legend: {
+              position: isNarrow ? 'bottom' : 'right',
+              labels: {
+                color: textColor,
+                padding: isNarrow ? 8 : 10,
+                usePointStyle: true,
+                pointStyle: 'circle',
+                font: { size: isNarrow ? 10 : 12 }
+              }
+            }
+          }
+        }
+      }));
+    }
+
+    var relevanceCtx = document.getElementById('relevanceChart');
+    if (relevanceCtx) {
+      charts.push(new Chart(relevanceCtx, {
+        type: 'bar',
+        data: {
+          labels: relevanceLabels,
+          datasets: [{
+            label: 'Papers',
+            data: relevanceValues,
+            backgroundColor: ['rgba(179, 135, 74, 0.85)', 'rgba(47, 93, 80, 0.85)', 'rgba(63, 88, 115, 0.85)', 'rgba(111, 90, 55, 0.85)'],
+            borderRadius: 8,
+            borderSkipped: false
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          resizeDelay: 0,
+          plugins: { legend: { display: false } },
+          scales: {
+            y: { beginAtZero: true, ticks: { color: textColor }, grid: { color: gridColor } },
+            x: { ticks: { color: textColor }, grid: { display: false } }
+          }
+        }
+      }));
+    }
+
+    var arxivCtx = document.getElementById('arxivChart');
+    if (arxivCtx) {
+      charts.push(new Chart(arxivCtx, {
+        type: 'bar',
+        data: {
+          labels: arxivLabels,
+          datasets: [{
+            label: 'Papers',
+            data: arxivValues,
+            backgroundColor: 'rgba(31, 76, 92, 0.8)',
+            borderRadius: 8,
+            borderSkipped: false
+          }]
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true,
+          maintainAspectRatio: false,
+          resizeDelay: 0,
+          plugins: { legend: { display: false } },
+          scales: {
+            x: { beginAtZero: true, ticks: { color: textColor }, grid: { color: gridColor } },
+            y: { ticks: { color: textColor }, grid: { display: false } }
+          }
+        }
+      }));
+    }
+
+    // Handle orientation change and resize with debounce
+    var resizeTimeout;
+    var handleResize = function() {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(function() {
+        charts.forEach(function(chart) {
+          if (chart && chart.canvas) {
+            // Force chart to recalculate size
+            chart.resize();
+          }
+        });
+
+        // Update category chart legend position based on viewport
+        var categoryChart = charts.find(function(c) { return c && c.canvas && c.canvas.id === 'categoryChart'; });
+        if (categoryChart) {
+          var isNarrow = window.innerWidth < 500;
+          categoryChart.options.plugins.legend.position = isNarrow ? 'bottom' : 'right';
+          categoryChart.options.plugins.legend.labels.padding = isNarrow ? 8 : 10;
+          categoryChart.options.plugins.legend.labels.font = { size: isNarrow ? 10 : 12 };
+          categoryChart.update('none');
+        }
+      }, 100);
+    };
+
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('orientationchange', function() {
+      // Delay resize on orientation change to allow layout to settle
+      setTimeout(handleResize, 200);
+    });
+  });
+</script>

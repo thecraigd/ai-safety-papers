@@ -1,0 +1,298 @@
+<!DOCTYPE html><html lang="en" class="scroll-smooth"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="The Guardrail - Curated AI safety research papers from arXiv, updated daily"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><title>Privacy Policy - The Guardrail</title><!-- Fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"><!-- CookieConsent v3.1.0 (GDPR/CCPA) --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.1.0/dist/cookieconsent.css" integrity="sha384-9KcNFt4axT+TNOVPHpwGHOm4Kv0UcMjdVya1kl+EPBQG+Vmqtz28cnx0f5PZYcnF" crossorigin="anonymous"><script src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.1.0/dist/cookieconsent.umd.js" integrity="sha384-xOY5eqzqHsjfa8YYAomICWjVJ3g9q1C1tWgRF09ut5PzRJjLFSpKH7gCsIN3hKcA" crossorigin="anonymous" defer></script><script>
+      const GA_MEASUREMENT_ID = 'G-Y0290VZXQJ';
+
+      // Initialize dataLayer and gtag for consent mode (must be before GA loads)
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){window.dataLayer.push(arguments);}
+      window.gtag = gtag;
+
+      // Set default consent state to denied (required for GDPR compliance)
+      gtag('consent', 'default', {
+        'analytics_storage': 'denied',
+        'ad_storage': 'denied',
+        'wait_for_update': 500
+      });
+
+      const enableAnalytics = () => {
+        if (!GA_MEASUREMENT_ID || GA_MEASUREMENT_ID === 'G-XXXXXXXXXX') {
+          return;
+        }
+
+        // Update consent state to granted
+        window.gtag('consent', 'update', {
+          'analytics_storage': 'granted'
+        });
+
+        if (window.gaInitialized) {
+          return;
+        }
+
+        const gaScript = document.createElement('script');
+        gaScript.async = true;
+        gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+
+        gaScript.onload = () => {
+          window.gtag('js', new Date());
+          window.gtag('config', GA_MEASUREMENT_ID, { anonymize_ip: true });
+        };
+
+        document.head.appendChild(gaScript);
+        window.gaInitialized = true;
+      };
+
+      const disableAnalytics = () => {
+        window.gtag('consent', 'update', {
+          'analytics_storage': 'denied'
+        });
+      };
+
+      const initCookieConsent = (attempt = 0) => {
+        if (!window.CookieConsent) {
+          if (attempt < 10) {
+            window.setTimeout(() => initCookieConsent(attempt + 1), 250);
+          }
+          return;
+        }
+
+        if (window.cookieConsentInitialized) {
+          return;
+        }
+        window.cookieConsentInitialized = true;
+
+        window.CookieConsent.run({
+          autoShow: true,
+          guiOptions: {
+            consentModal: {
+              layout: 'box',
+              position: 'bottom right',
+              equalWeightButtons: true,
+              flipButtons: false
+            },
+            preferencesModal: {
+              layout: 'box',
+              position: 'right',
+              equalWeightButtons: true,
+              flipButtons: false
+            }
+          },
+          categories: {
+            necessary: {
+              enabled: true,
+              readOnly: true
+            },
+            analytics: {
+              enabled: false,
+              autoClear: {
+                cookies: [
+                  { name: /^_ga/ },
+                  { name: '_gid' },
+                  { name: /^_gat/ }
+                ]
+              }
+            }
+          },
+          language: {
+            default: 'en',
+            translations: {
+              en: {
+                consentModal: {
+                  title: 'We use cookies',
+                  description: 'We use cookies to improve site performance and understand how the site is used. You can accept or reject analytics cookies.',
+                  acceptAllBtn: 'Accept all',
+                  acceptNecessaryBtn: 'Reject analytics',
+                  showPreferencesBtn: 'Manage preferences'
+                },
+                preferencesModal: {
+                  title: 'Cookie preferences',
+                  acceptAllBtn: 'Accept all',
+                  acceptNecessaryBtn: 'Reject analytics',
+                  savePreferencesBtn: 'Save preferences',
+                  sections: [
+                    {
+                      title: 'Cookie usage',
+                      description: 'We use essential cookies for the site to function and analytics cookies to understand traffic.'
+                    },
+                    {
+                      title: 'Essential cookies',
+                      description: 'These cookies are required for the site to function and cannot be disabled.',
+                      linkedCategory: 'necessary'
+                    },
+                    {
+                      title: 'Analytics cookies',
+                      description: 'These cookies help us understand site usage and improve content.',
+                      linkedCategory: 'analytics'
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          onFirstConsent: () => {
+            if (window.CookieConsent.acceptedCategory('analytics')) {
+              enableAnalytics();
+            }
+          },
+          onConsent: () => {
+            if (window.CookieConsent.acceptedCategory('analytics')) {
+              enableAnalytics();
+            }
+          },
+          onChange: () => {
+            if (window.CookieConsent.acceptedCategory('analytics')) {
+              enableAnalytics();
+            } else {
+              disableAnalytics();
+            }
+          }
+        });
+
+        if (window.CookieConsent.acceptedCategory('analytics')) {
+          enableAnalytics();
+        }
+      };
+
+      window.addEventListener('load', () => initCookieConsent());
+    </script><!-- Dark mode script - run before render to prevent flash --><script>
+      const theme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.classList.toggle('dark', theme === 'dark');
+    </script><link rel="stylesheet" href="/assets/about.BwEPcttF.css"><script type="module" src="/assets/hoisted.CvQEWfIr.js"></script></head> <body class="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 antialiased"> <!-- Skip link for keyboard navigation --> <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-brass-500 focus:text-white focus:rounded-lg focus:font-semibold">
+Skip to main content
+</a> <!-- Gradient background effects (decorative) --> <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none ambient-bg" aria-hidden="true"> <div class="absolute -top-48 -right-48 w-[520px] h-[520px] bg-gradient-to-br from-brass-300/35 via-brass-200/15 to-transparent dark:from-brass-500/15 dark:via-brass-400/10 dark:to-transparent rounded-full blur-3xl"></div> <div class="absolute top-1/4 -left-48 w-[480px] h-[480px] bg-gradient-to-br from-emerald-400/15 via-teal-300/10 to-transparent dark:from-emerald-600/10 dark:via-teal-500/10 dark:to-transparent rounded-full blur-3xl"></div> <div class="absolute bottom-0 right-1/3 w-[640px] h-[640px] bg-gradient-to-br from-slate-300/20 via-slate-200/10 to-transparent dark:from-slate-800/40 dark:via-slate-700/20 dark:to-transparent rounded-full blur-3xl"></div> </div>  <header class="site-header sticky top-0 z-50 glass border-b border-slate-200/50 dark:border-slate-800/50 shadow-[0_16px_40px_-35px_rgba(0,0,0,0.35)]" role="banner"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> <div class="flex items-center justify-between h-14 sm:h-16"> <!-- Logo / Title --> <a href="/" class="flex items-center space-x-2 sm:space-x-3 group shrink-0"> <div class="relative"> <div class="absolute inset-0 bg-gradient-to-br from-brass-400/60 to-brass-200/30 rounded-xl blur opacity-40 group-hover:opacity-70 transition-opacity"></div> <div class="relative w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 ring-1 ring-brass-400/40 flex items-center justify-center shadow-lg"> <svg class="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path> </svg> </div> </div> <div class="min-w-0"> <h1 class="text-base sm:text-lg font-semibold font-display tracking-[0.03em] bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-slate-300 bg-clip-text text-transparent truncate">
+The Guardrail
+</h1> <p class="hidden sm:block text-[10px] uppercase tracking-[0.28em] text-slate-500 dark:text-slate-400 font-medium">AI Safety Research, Daily</p> </div> </a> <!-- Desktop Navigation --> <nav class="hidden md:flex items-center space-x-1 lg:space-x-2" aria-label="Main navigation">  <a href="/" class="nav-link px-3 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors rounded-full hover:bg-slate-100/80 dark:hover:bg-slate-800/80">
+Home
+</a> <a href="/browse/" class="nav-link px-3 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors rounded-full hover:bg-slate-100/80 dark:hover:bg-slate-800/80 flex items-center gap-1.5"> <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path> </svg>
+Browse
+</a> <a href="/editors-choice/" class="nav-link px-3 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors rounded-full hover:bg-slate-100/80 dark:hover:bg-slate-800/80 flex items-center gap-1.5"> <svg class="w-4 h-4 text-brass-500" fill="currentColor" viewBox="0 0 24 24"> <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path> </svg>
+Editor's Choice
+</a> <a href="/newsletter/" class="nav-link px-3 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors rounded-full hover:bg-slate-100/80 dark:hover:bg-slate-800/80 flex items-center gap-1.5"> <svg class="w-4 h-4 text-brass-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path> </svg>
+Newsletter
+</a> <a href="/analytics/" class="nav-link px-3 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors rounded-full hover:bg-slate-100/80 dark:hover:bg-slate-800/80">
+Analytics
+</a> <a href="/about/" class="nav-link px-3 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors rounded-full hover:bg-slate-100/80 dark:hover:bg-slate-800/80">
+About
+</a> <a href="https://github.com/thecraigd/ai-safety-papers" target="_blank" rel="noopener noreferrer" class="p-2 rounded-full text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800/80 transition-colors" aria-label="View project on GitHub (opens in new window)"> <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"> <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path> </svg> </a> <button id="theme-toggle-desktop" class="p-2 rounded-full text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800/80 transition-all" aria-label="Toggle dark mode"> <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path> </svg> <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path> </svg> </button> <!-- Auth: Sign In Button (shown when logged out) --> <button id="sign-in-btn-desktop" class="hidden px-4 py-1.5 text-sm font-medium text-white bg-brass-600 hover:bg-brass-700 rounded-full transition-colors">
+Sign in
+</button> <!-- Auth: User Menu (shown when logged in) --> <div id="user-menu-desktop" class="relative hidden"> <button id="user-menu-toggle-desktop" class="flex items-center gap-2 px-2 py-1 rounded-full hover:bg-slate-100/80 dark:hover:bg-slate-800/80 transition-colors" aria-expanded="false" aria-haspopup="true"> <div id="user-avatar-desktop" class="w-7 h-7 rounded-full bg-brass-500 flex items-center justify-center text-white text-sm font-medium">
+?
+</div> <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path> </svg> </button> <div id="user-menu-dropdown-desktop" class="hidden absolute right-0 top-full mt-1 py-1 min-w-[180px] glass rounded-xl border border-slate-200/50 dark:border-slate-700/50 shadow-lg"> <div id="user-info-desktop" class="px-4 py-2 border-b border-slate-200/50 dark:border-slate-700/50"> <p class="text-sm font-medium text-slate-900 dark:text-white truncate" id="user-name-desktop">User</p> <p class="text-xs text-slate-500 dark:text-slate-400 truncate" id="user-email-desktop">user@example.com</p> </div> <a href="/my-papers/" class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800/80 transition-colors"> <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path> </svg>
+My Papers
+</a> <a href="/account/" class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800/80 transition-colors"> <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path> </svg>
+Account Settings
+</a> <button id="sign-out-btn-desktop" class="w-full flex items-center gap-2 px-4 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800/80 transition-colors"> <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path> </svg>
+Sign out
+</button> </div> </div> </nav> <!-- Mobile Navigation Controls --> <div class="flex md:hidden items-center space-x-1"> <!-- Mobile Sign In Button --> <button id="sign-in-btn-mobile" class="hidden px-3 py-1 text-sm font-medium text-white bg-brass-600 hover:bg-brass-700 rounded-full transition-colors">
+Sign in
+</button> <!-- Mobile User Avatar (when logged in) --> <button id="user-avatar-mobile" class="hidden w-8 h-8 rounded-full bg-brass-500 flex items-center justify-center text-white text-sm font-medium" aria-label="User menu">
+?
+</button> <button id="theme-toggle-mobile" class="p-2 rounded-full text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800/80 transition-all" aria-label="Toggle dark mode"> <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path> </svg> <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path> </svg> </button> <button id="mobile-menu-toggle" class="p-2 rounded-full text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800/80 transition-all" aria-label="Toggle menu" aria-expanded="false"> <svg id="menu-icon-open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> <svg id="menu-icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path> </svg> </button> </div> </div> </div> <!-- Mobile Menu Dropdown --> <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200/50 dark:border-slate-800/50"> <div class="px-4 py-3 space-y-1 glass">  <a href="/" class="block px-3 py-2.5 text-base font-medium text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white rounded-xl hover:bg-slate-100/80 dark:hover:bg-slate-800/80 transition-colors">
+Home
+</a> <a href="/browse/" class="flex items-center gap-2 px-3 py-2.5 text-base font-medium text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white rounded-xl hover:bg-slate-100/80 dark:hover:bg-slate-800/80 transition-colors"> <svg class="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path> </svg>
+Browse All Papers
+</a> <a href="/editors-choice/" class="flex items-center gap-2 px-3 py-2.5 text-base font-medium text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white rounded-xl hover:bg-slate-100/80 dark:hover:bg-slate-800/80 transition-colors"> <svg class="w-5 h-5 text-brass-500" fill="currentColor" viewBox="0 0 24 24"> <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path> </svg>
+Editor's Choice
+</a> <a href="/about/" class="block px-3 py-2.5 text-base font-medium text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white rounded-xl hover:bg-slate-100/80 dark:hover:bg-slate-800/80 transition-colors">
+About
+</a> <a href="/analytics/" class="block px-3 py-2.5 text-base font-medium text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white rounded-xl hover:bg-slate-100/80 dark:hover:bg-slate-800/80 transition-colors">
+Analytics
+</a> <a href="/newsletter/" class="flex items-center gap-2 px-3 py-2.5 text-base font-medium text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white rounded-xl hover:bg-slate-100/80 dark:hover:bg-slate-800/80 transition-colors"> <svg class="w-5 h-5 text-brass-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path> </svg>
+Newsletter
+</a> <a href="https://github.com/thecraigd/ai-safety-papers" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-3 py-2.5 text-base font-medium text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white rounded-xl hover:bg-slate-100/80 dark:hover:bg-slate-800/80 transition-colors" aria-label="View project on GitHub (opens in new window)"> <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"> <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path> </svg>
+GitHub
+<span class="sr-only">(opens in new window)</span> </a> <!-- Auth section in mobile menu --> <div id="mobile-auth-section" class="border-t border-slate-200/50 dark:border-slate-700/50 mt-2 pt-2"> <!-- Shown when logged in --> <div id="mobile-user-info" class="hidden px-3 py-2"> <p class="text-sm font-medium text-slate-900 dark:text-white" id="mobile-user-name">User</p> <p class="text-xs text-slate-500 dark:text-slate-400" id="mobile-user-email">user@example.com</p> </div> <a id="mobile-my-papers-link" href="/my-papers/" class="hidden items-center gap-2 px-3 py-2.5 text-base font-medium text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white rounded-xl hover:bg-slate-100/80 dark:hover:bg-slate-800/80 transition-colors"> <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path> </svg>
+My Papers
+</a> <a id="mobile-account-link" href="/account/" class="hidden items-center gap-2 px-3 py-2.5 text-base font-medium text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white rounded-xl hover:bg-slate-100/80 dark:hover:bg-slate-800/80 transition-colors"> <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path> </svg>
+Account Settings
+</a> <button id="sign-out-btn-mobile" class="hidden w-full items-center gap-2 px-3 py-2.5 text-base font-medium text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white rounded-xl hover:bg-slate-100/80 dark:hover:bg-slate-800/80 transition-colors text-left"> <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path> </svg>
+Sign out
+</button> </div> </div> </div> </header>  <main id="main-content"> <section class="relative overflow-hidden hero-section"> <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-12 sm:pt-16 sm:pb-16"> <div class="text-center"> <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brass-500/10 dark:bg-brass-500/15 border border-brass-500/30 mb-6 reveal" style="--delay: 0ms"> <svg class="w-4 h-4 text-brass-600 dark:text-brass-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0-1.657 1.343-3 3-3h2m-6 3c0 1.657-1.343 3-3 3H6m6 0c0 1.657 1.343 3 3 3h2m-6-3c0-1.657-1.343-3-3-3H6m6-7a9 9 0 100 18 9 9 0 000-18z"></path> </svg> <span class="text-[11px] font-semibold uppercase tracking-[0.24em] text-brass-700 dark:text-brass-200">Privacy</span> </div> <h1 class="text-4xl sm:text-5xl font-display font-semibold tracking-tight mb-4 reveal hero-title" style="--delay: 90ms"> <span class="text-slate-900 dark:text-white">Privacy Policy</span> </h1> <p class="hero-subtitle text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed reveal" style="--delay: 150ms">
+How The Guardrail handles personal data, in English and German.
+</p> </div> </div> </section> <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-16"> <div class="glass rounded-2xl p-8 border border-slate-200/50 dark:border-slate-700/50 space-y-10"> <div class="space-y-6"> <div> <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-2">Privacy Policy (English)</h2> <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+This privacy policy explains how personal data is processed when you visit theguardrail.net.
+</p> </div> <div class="grid gap-6 sm:grid-cols-2"> <div class="rounded-xl border border-slate-200/60 dark:border-slate-700/50 p-5 bg-white/60 dark:bg-slate-900/40"> <h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Controller</h3> <p class="mt-3 text-slate-700 dark:text-slate-300 leading-relaxed">
+craigdoesdata - Craig Dickson<br>
+c/o Online-Impressum.de #5613<br>
+Europaring 90<br>
+53757 Sankt Augustin<br>
+Germany<br>
+Email: <a class="text-brass-600 dark:text-brass-300 hover:underline" href="mailto:contact@theguardrail.net">contact@theguardrail.net</a> </p> </div> <div class="rounded-xl border border-slate-200/60 dark:border-slate-700/50 p-5 bg-white/60 dark:bg-slate-900/40"> <h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Hosting</h3> <p class="mt-3 text-slate-700 dark:text-slate-300 leading-relaxed">
+This site is hosted on GitHub Pages (GitHub, Inc.). GitHub processes server log files (e.g., IP address, date and time of access, requested page, user agent) to operate and secure the service. Processing is based on legitimate interests (Art. 6(1)(f) GDPR). Data may be transferred to the United States under standard contractual clauses. See GitHub’s privacy policy for details.
+</p> <p class="mt-3 text-slate-600 dark:text-slate-400 text-sm"> <a class="text-brass-600 dark:text-brass-300 hover:underline" href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub Privacy Statement</a> </p> </div> </div> <div class="rounded-xl border border-slate-200/60 dark:border-slate-700/50 p-5 bg-white/60 dark:bg-slate-900/40 space-y-3"> <h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">User Accounts &amp; Saved Papers</h3> <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+You can create an account using OAuth authentication (Google, GitHub, or Microsoft). When you sign in, we receive your email address, name, and profile picture from the OAuth provider. We store this information along with your saved papers in our database hosted on Cloudflare (Cloudflare, Inc.).
+</p> <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+Your saved papers sync across all your devices when you're signed in. The legal basis for processing is the performance of a contract (Art. 6(1)(b) GDPR) - providing the bookmark sync service you requested.
+</p> <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+You can export all your data or delete your account at any time from the <a class="text-brass-600 dark:text-brass-300 hover:underline" href="/account/">account settings</a> page.
+</p> <p class="text-slate-600 dark:text-slate-400 text-sm"> <a class="text-brass-600 dark:text-brass-300 hover:underline" href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">Cloudflare Privacy Policy</a> </p> </div> <div class="rounded-xl border border-slate-200/60 dark:border-slate-700/50 p-5 bg-white/60 dark:bg-slate-900/40 space-y-3"> <h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Google Analytics (GA4)</h3> <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+We use Google Analytics 4 (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland) to understand how the site is used and to improve the content. Google Analytics is only loaded after you actively consent to analytics cookies in our cookie banner. The legal basis is your consent (Art. 6(1)(a) GDPR).
+</p> <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+When enabled, Google Analytics processes information such as pages visited, approximate location, device and browser information, and interactions. Your IP address is anonymised before processing. Data may be transferred to Google LLC in the United States based on standard contractual clauses.
+</p> <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+We set the GA4 data retention period to 14 months.
+</p> <p class="text-slate-600 dark:text-slate-400 text-sm">
+You can withdraw consent at any time by reopening the cookie preferences and disabling analytics. You can also learn more at
+<a class="text-brass-600 dark:text-brass-300 hover:underline" href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a>.
+</p> </div> <div class="rounded-xl border border-slate-200/60 dark:border-slate-700/50 p-5 bg-white/60 dark:bg-slate-900/40 space-y-3"> <h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Cookies & Consent</h3> <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+We use essential cookies to store your cookie choices and keep the site working. Analytics cookies are only used if you consent.
+</p> <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+Consent storage: The CookieConsent banner stores your choice so we can remember it. This cookie is necessary and is stored for a limited period in your browser (set by the consent tool) or until you change your preferences or clear your cookies.
+</p> <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+Analytics cookies (optional): If you consent, Google Analytics sets cookies (e.g., _ga, _ga_&lt;id&gt;, _gid, _gat) to measure usage. Cookie lifetimes range from minutes to up to two years. We do not use marketing/advertising cookies.
+</p> </div> <div class="rounded-xl border border-slate-200/60 dark:border-slate-700/50 p-5 bg-white/60 dark:bg-slate-900/40 space-y-3"> <h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Newsletter</h3> <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+If you subscribe to our newsletter, we collect your email address and consent status. This data is processed by Buttondown (Buttondown, LLC). We send one email per week containing curated AI safety research. You can unsubscribe at any time using the link in each email. Legal basis: Your consent (Art. 6(1)(a) GDPR).
+</p> <p class="text-slate-600 dark:text-slate-400 text-sm"> <a class="text-brass-600 dark:text-brass-300 hover:underline" href="https://buttondown.com/legal/privacy" target="_blank" rel="noopener noreferrer">Buttondown Privacy Policy</a> </p> </div> <div class="rounded-xl border border-slate-200/60 dark:border-slate-700/50 p-5 bg-white/60 dark:bg-slate-900/40"> <h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Your Rights</h3> <p class="mt-3 text-slate-700 dark:text-slate-300 leading-relaxed">
+You have rights to access, rectification, deletion, restriction, and objection under the GDPR. To exercise your rights, contact us at the email address above. You may also lodge a complaint with a supervisory authority.
+</p> </div> </div> <div class="border-t border-slate-200/40 dark:border-slate-700/40 pt-8 space-y-6"> <div> <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-2">Datenschutzerklärung (Deutsch)</h2> <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+Diese Datenschutzerklärung informiert über die Verarbeitung personenbezogener Daten bei der Nutzung von theguardrail.net.
+</p> </div> <div class="grid gap-6 sm:grid-cols-2"> <div class="rounded-xl border border-slate-200/60 dark:border-slate-700/50 p-5 bg-white/60 dark:bg-slate-900/40"> <h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Verantwortlicher</h3> <p class="mt-3 text-slate-700 dark:text-slate-300 leading-relaxed">
+craigdoesdata - Craig Dickson<br>
+c/o Online-Impressum.de #5613<br>
+Europaring 90<br>
+53757 Sankt Augustin<br>
+E-Mail: <a class="text-brass-600 dark:text-brass-300 hover:underline" href="mailto:contact@theguardrail.net">contact@theguardrail.net</a> </p> </div> <div class="rounded-xl border border-slate-200/60 dark:border-slate-700/50 p-5 bg-white/60 dark:bg-slate-900/40"> <h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Hosting</h3> <p class="mt-3 text-slate-700 dark:text-slate-300 leading-relaxed">
+Diese Website wird über GitHub Pages (GitHub, Inc.) gehostet. GitHub verarbeitet Server-Logfiles (z. B. IP-Adresse, Datum und Uhrzeit des Zugriffs, aufgerufene Seite, User-Agent) zur Bereitstellung und Sicherheit des Dienstes. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Eine Datenübermittlung in die USA kann auf Standardvertragsklauseln gestützt werden. Details finden Sie in der GitHub-Datenschutzerklärung.
+</p> <p class="mt-3 text-slate-600 dark:text-slate-400 text-sm"> <a class="text-brass-600 dark:text-brass-300 hover:underline" href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub Privacy Statement</a> </p> </div> </div> <div class="rounded-xl border border-slate-200/60 dark:border-slate-700/50 p-5 bg-white/60 dark:bg-slate-900/40 space-y-3"> <h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Benutzerkonten &amp; Gespeicherte Paper</h3> <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+Sie können ein Konto mit OAuth-Authentifizierung (Google, GitHub oder Microsoft) erstellen. Bei der Anmeldung erhalten wir Ihre E-Mail-Adresse, Ihren Namen und Ihr Profilbild vom OAuth-Anbieter. Wir speichern diese Informationen zusammen mit Ihren gespeicherten Papern in unserer Datenbank, die bei Cloudflare (Cloudflare, Inc.) gehostet wird.
+</p> <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+Ihre gespeicherten Paper werden auf allen Ihren Geräten synchronisiert, wenn Sie angemeldet sind. Rechtsgrundlage ist die Vertragserfüllung (Art. 6 Abs. 1 lit. b DSGVO) - die Bereitstellung des von Ihnen angeforderten Synchronisierungsdienstes.
+</p> <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+Sie können jederzeit alle Ihre Daten exportieren oder Ihr Konto über die <a class="text-brass-600 dark:text-brass-300 hover:underline" href="/account/">Kontoeinstellungen</a> löschen.
+</p> <p class="text-slate-600 dark:text-slate-400 text-sm"> <a class="text-brass-600 dark:text-brass-300 hover:underline" href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">Cloudflare Datenschutzerklärung</a> </p> </div> <div class="rounded-xl border border-slate-200/60 dark:border-slate-700/50 p-5 bg-white/60 dark:bg-slate-900/40 space-y-3"> <h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Google Analytics (GA4)</h3> <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+Wir verwenden Google Analytics 4 (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland), um die Nutzung der Website auszuwerten und Inhalte zu verbessern. Google Analytics wird erst geladen, nachdem Sie im Cookie-Banner aktiv in Analyse-Cookies eingewilligt haben. Rechtsgrundlage ist Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO).
+</p> <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+Bei Aktivierung verarbeitet Google Analytics Informationen wie besuchte Seiten, ungefähren Standort, Geräte- und Browserinformationen sowie Interaktionen. Die IP-Adresse wird vor der Verarbeitung anonymisiert. Eine Übermittlung an Google LLC in den USA kann auf Standardvertragsklauseln gestützt werden.
+</p> <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+Die Aufbewahrungsdauer der GA4-Daten ist auf 14 Monate eingestellt.
+</p> <p class="text-slate-600 dark:text-slate-400 text-sm">
+Sie können Ihre Einwilligung jederzeit widerrufen, indem Sie die Cookie-Einstellungen erneut öffnen und Analytics deaktivieren. Weitere Informationen finden Sie in der
+<a class="text-brass-600 dark:text-brass-300 hover:underline" href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google-Datenschutzerklärung</a>.
+</p> </div> <div class="rounded-xl border border-slate-200/60 dark:border-slate-700/50 p-5 bg-white/60 dark:bg-slate-900/40 space-y-3"> <h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Cookies &amp; Einwilligung</h3> <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+Wir verwenden notwendige Cookies, um Ihre Cookie-Einstellungen zu speichern und die Website bereitzustellen. Analyse-Cookies werden nur nach Einwilligung gesetzt.
+</p> <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+Einwilligungs-Cookie: Das Cookie-Banner (CookieConsent) speichert Ihre Auswahl, damit wir sie wiedererkennen. Dieses Cookie ist erforderlich und wird für eine begrenzte Zeit im Browser gespeichert (durch das Consent-Tool festgelegt) oder bis Sie Ihre Einstellungen ändern bzw. Ihre Cookies löschen.
+</p> <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+Analyse-Cookies (optional): Bei Einwilligung setzt Google Analytics Cookies (z. B. _ga, _ga_&lt;id&gt;, _gid, _gat) zur Messung der Nutzung. Die Laufzeiten reichen von Minuten bis zu maximal zwei Jahren. Wir verwenden keine Marketing-/Werbe-Cookies.
+</p> </div> <div class="rounded-xl border border-slate-200/60 dark:border-slate-700/50 p-5 bg-white/60 dark:bg-slate-900/40 space-y-3"> <h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Newsletter</h3> <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+Wenn Sie unseren Newsletter abonnieren, erheben wir Ihre E-Mail-Adresse und Ihren Einwilligungsstatus. Diese Daten werden von Buttondown (Buttondown, LLC) verarbeitet. Wir versenden eine E-Mail pro Woche mit kuratierter KI-Sicherheitsforschung. Sie können sich jederzeit über den Link in jeder E-Mail abmelden. Rechtsgrundlage: Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO).
+</p> <p class="text-slate-600 dark:text-slate-400 text-sm"> <a class="text-brass-600 dark:text-brass-300 hover:underline" href="https://buttondown.com/legal/privacy" target="_blank" rel="noopener noreferrer">Buttondown Datenschutzerklärung</a> </p> </div> <div class="rounded-xl border border-slate-200/60 dark:border-slate-700/50 p-5 bg-white/60 dark:bg-slate-900/40"> <h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Ihre Rechte</h3> <p class="mt-3 text-slate-700 dark:text-slate-300 leading-relaxed">
+Sie haben die Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung und Widerspruch nach der DSGVO. Zur Ausübung Ihrer Rechte kontaktieren Sie uns unter der oben genannten E-Mail-Adresse. Zudem besteht ein Beschwerderecht bei einer Aufsichtsbehörde.
+</p> </div> </div> </div> </section> </main> <footer class="border-t border-slate-200/50 dark:border-slate-800/50 mt-16 bg-white/50 dark:bg-slate-900/50"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12"> <div class="flex flex-col gap-8"> <!-- Main footer content --> <div class="flex flex-col md:flex-row items-center justify-between gap-6"> <div class="flex items-center gap-3"> <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-slate-900 to-slate-700 ring-1 ring-brass-400/40 flex items-center justify-center"> <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path> </svg> </div> <div> <div class="font-semibold text-slate-900 dark:text-white">The Guardrail</div> <p class="text-sm text-slate-500 dark:text-slate-400">
+Thank you to arXiv for open access interoperability.
+</p> </div> </div> <a href="https://github.com/thecraigd/ai-safety-papers" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors flex items-center gap-2"> <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"> <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path> </svg>
+View on GitHub
+</a> </div> <!-- Bottom section with URL, contact, and copyright --> <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-slate-200/30 dark:border-slate-700/30"> <div class="flex flex-col items-center sm:items-start gap-3 text-xs text-slate-500 dark:text-slate-500"> <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-6"> <span class="font-medium">www.theguardrail.net</span> <span class="hidden sm:inline text-slate-300 dark:text-slate-700">|</span> <a href="/contact/" class="hover:text-slate-700 dark:hover:text-slate-300 transition-colors">
+Contact
+</a> </div> <div class="flex items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-slate-400 dark:text-slate-500"> <a href="/impressum/" class="hover:text-slate-700 dark:hover:text-slate-200 transition-colors">Impressum</a> <span class="text-slate-300 dark:text-slate-700">|</span> <a href="/privacy/" class="hover:text-slate-700 dark:hover:text-slate-200 transition-colors">Privacy Policy</a> </div> <div class="flex items-center gap-2 flex-wrap justify-center sm:justify-start"> <span>Supported by a</span> <a href="https://bluedot.org/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center hover:opacity-80 transition-opacity"> <img src="/img/BlueDot Impact Logo (b).png" alt="BlueDot Impact" class="h-4 w-auto dark:invert dark:brightness-200" loading="lazy"> </a> <span>Rapid Grant</span> </div> </div> <p class="text-xs text-slate-400 dark:text-slate-600">
+&copy; 2026 The Guardrail
+</p> </div> </div> </div> </footer>  <div id="auth-modal" class="fixed inset-0 z-[100] hidden" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title" data-astro-cid-6iignqru> <!-- Backdrop --> <div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm" id="auth-modal-backdrop" data-astro-cid-6iignqru></div> <!-- Modal --> <div class="fixed inset-0 flex items-center justify-center p-4" data-astro-cid-6iignqru> <div class="relative w-full max-w-md glass rounded-2xl shadow-2xl border border-slate-200/50 dark:border-slate-700/50 p-6 sm:p-8" data-astro-cid-6iignqru> <!-- Close button --> <button id="auth-modal-close" class="absolute top-4 right-4 p-2 rounded-full text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800/80 transition-colors" aria-label="Close modal" data-astro-cid-6iignqru> <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-6iignqru> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" data-astro-cid-6iignqru></path> </svg> </button> <!-- Header --> <div class="text-center mb-6" data-astro-cid-6iignqru> <div class="mx-auto w-12 h-12 rounded-xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 ring-1 ring-brass-400/40 flex items-center justify-center shadow-lg mb-4" data-astro-cid-6iignqru> <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-6iignqru> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" data-astro-cid-6iignqru></path> </svg> </div> <h2 id="auth-modal-title" class="text-xl font-semibold font-display text-slate-900 dark:text-white" data-astro-cid-6iignqru>
+Sign in to save papers
+</h2> <p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-astro-cid-6iignqru>
+Your saved papers sync across all your devices
+</p> </div> <!-- OAuth Buttons --> <div class="space-y-3" data-astro-cid-6iignqru> <!-- Google --> <button class="auth-provider-btn w-full flex items-center justify-center gap-3 px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors text-slate-700 dark:text-slate-200 font-medium" data-provider="google" data-astro-cid-6iignqru> <svg class="w-5 h-5" viewBox="0 0 24 24" data-astro-cid-6iignqru> <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" data-astro-cid-6iignqru></path> <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" data-astro-cid-6iignqru></path> <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" data-astro-cid-6iignqru></path> <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" data-astro-cid-6iignqru></path> </svg>
+Continue with Google
+</button> <!-- GitHub --> <button class="auth-provider-btn w-full flex items-center justify-center gap-3 px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors text-slate-700 dark:text-slate-200 font-medium" data-provider="github" data-astro-cid-6iignqru> <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" data-astro-cid-6iignqru> <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" data-astro-cid-6iignqru></path> </svg>
+Continue with GitHub
+</button> <!-- Microsoft --> <button class="auth-provider-btn w-full flex items-center justify-center gap-3 px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors text-slate-700 dark:text-slate-200 font-medium" data-provider="microsoft" data-astro-cid-6iignqru> <svg class="w-5 h-5" viewBox="0 0 23 23" data-astro-cid-6iignqru> <path fill="#f35325" d="M1 1h10v10H1z" data-astro-cid-6iignqru></path> <path fill="#81bc06" d="M12 1h10v10H12z" data-astro-cid-6iignqru></path> <path fill="#05a6f0" d="M1 12h10v10H1z" data-astro-cid-6iignqru></path> <path fill="#ffba08" d="M12 12h10v10H12z" data-astro-cid-6iignqru></path> </svg>
+Continue with Microsoft
+</button> </div> <!-- Footer --> <p class="mt-6 text-center text-xs text-slate-500 dark:text-slate-400" data-astro-cid-6iignqru>
+By signing in, you agree to our <a href="/privacy/" class="underline hover:text-slate-700 dark:hover:text-slate-300" data-astro-cid-6iignqru>Privacy Policy</a> </p> </div> </div> </div>   </body></html>

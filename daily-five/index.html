@@ -1,0 +1,301 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="The five AI safety papers ranked highest each day by The Guardrail's two-stage language-model review, with an archive of every day."><meta name="color-scheme" content="light dark"><meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0e141b" media="(prefers-color-scheme: dark)"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><title>The Daily Five | The Guardrail</title><link rel="canonical" href="https://theguardrail.net/daily-five/"><!-- Theme: the visitor's choice if they made one, otherwise their system setting. Runs before paint. --><script>
+      (() => {
+        const root = document.documentElement;
+        root.classList.add('js');
+        const media = window.matchMedia('(prefers-color-scheme: dark)');
+        const stored = () => {
+          try {
+            const value = localStorage.getItem('theme');
+            return value === 'dark' || value === 'light' ? value : null;
+          } catch {
+            return null;
+          }
+        };
+        const apply = (theme) => {
+          root.classList.toggle('dark', theme === 'dark');
+          root.classList.toggle('light', theme !== 'dark');
+        };
+        apply(stored() || (media.matches ? 'dark' : 'light'));
+        media.addEventListener('change', (event) => {
+          if (!stored()) {
+            apply(event.matches ? 'dark' : 'light');
+            window.dispatchEvent(new CustomEvent('themechange'));
+          }
+        });
+      })();
+    </script><!-- Link previews (Open Graph, X/Twitter) --><meta property="og:site_name" content="The Guardrail"><meta property="og:type" content="website"><meta property="og:title" content="The Daily Five | The Guardrail"><meta property="og:description" content="The five AI safety papers ranked highest each day by The Guardrail's two-stage language-model review, with an archive of every day."><meta property="og:url" content="https://theguardrail.net/daily-five/"><meta property="og:image" content="https://theguardrail.net/og/default.png"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="The Guardrail: AI safety research from arXiv, screened daily and ranked weekly"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="The Daily Five | The Guardrail"><meta name="twitter:description" content="The five AI safety papers ranked highest each day by The Guardrail's two-stage language-model review, with an archive of every day."><meta name="twitter:image" content="https://theguardrail.net/og/default.png"><meta name="twitter:image:alt" content="The Guardrail: AI safety research from arXiv, screened daily and ranked weekly"><!-- CookieConsent v3.1.0 (GDPR/CCPA), served from this site: see the module script in <body> --><script>
+      const GA_MEASUREMENT_ID = 'G-Y0290VZXQJ';
+
+      // Initialize dataLayer and gtag for consent mode (must be before GA loads)
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){window.dataLayer.push(arguments);}
+      window.gtag = gtag;
+
+      // Set default consent state to denied (required for GDPR compliance)
+      gtag('consent', 'default', {
+        'analytics_storage': 'denied',
+        'ad_storage': 'denied',
+        'wait_for_update': 500
+      });
+
+      const enableAnalytics = () => {
+        if (!GA_MEASUREMENT_ID || GA_MEASUREMENT_ID === 'G-XXXXXXXXXX') {
+          return;
+        }
+
+        // Update consent state to granted
+        window.gtag('consent', 'update', {
+          'analytics_storage': 'granted'
+        });
+
+        if (window.gaInitialized) {
+          return;
+        }
+
+        const gaScript = document.createElement('script');
+        gaScript.async = true;
+        gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+
+        gaScript.onload = () => {
+          window.gtag('js', new Date());
+          window.gtag('config', GA_MEASUREMENT_ID, { anonymize_ip: true });
+        };
+
+        document.head.appendChild(gaScript);
+        window.gaInitialized = true;
+      };
+
+      const disableAnalytics = () => {
+        window.gtag('consent', 'update', {
+          'analytics_storage': 'denied'
+        });
+      };
+
+      const initCookieConsent = (attempt = 0) => {
+        if (!window.CookieConsent) {
+          if (attempt < 10) {
+            window.setTimeout(() => initCookieConsent(attempt + 1), 250);
+          }
+          return;
+        }
+
+        if (window.cookieConsentInitialized) {
+          return;
+        }
+        window.cookieConsentInitialized = true;
+
+        window.CookieConsent.run({
+          autoShow: true,
+          guiOptions: {
+            consentModal: {
+              layout: 'box',
+              position: 'bottom right',
+              equalWeightButtons: true,
+              flipButtons: false
+            },
+            preferencesModal: {
+              layout: 'box',
+              position: 'right',
+              equalWeightButtons: true,
+              flipButtons: false
+            }
+          },
+          categories: {
+            necessary: {
+              enabled: true,
+              readOnly: true
+            },
+            analytics: {
+              enabled: false,
+              autoClear: {
+                cookies: [
+                  { name: /^_ga/ },
+                  { name: '_gid' },
+                  { name: /^_gat/ }
+                ]
+              }
+            }
+          },
+          language: {
+            default: 'en',
+            translations: {
+              en: {
+                consentModal: {
+                  title: 'We use cookies',
+                  description: 'With your consent, we use Google Analytics cookies to understand how the site is used. They are optional and off unless you accept. <a href="/privacy/">Privacy policy</a>',
+                  acceptAllBtn: 'Accept all',
+                  acceptNecessaryBtn: 'Reject analytics',
+                  showPreferencesBtn: 'Manage preferences'
+                },
+                preferencesModal: {
+                  title: 'Cookie preferences',
+                  closeIconLabel: 'Close',
+                  acceptAllBtn: 'Accept all',
+                  acceptNecessaryBtn: 'Reject analytics',
+                  savePreferencesBtn: 'Save preferences',
+                  sections: [
+                    {
+                      title: 'Cookie usage',
+                      description: 'Essential cookies keep the site working. Analytics cookies are optional and only set if you allow them. You can change your choice at any time with "Cookie settings" at the bottom of every page.'
+                    },
+                    {
+                      title: 'Essential cookies',
+                      description: 'These store your cookie choice and, if you sign in, keep you signed in. They are required and cannot be turned off.',
+                      linkedCategory: 'necessary'
+                    },
+                    {
+                      title: 'Analytics cookies',
+                      description: 'Google Analytics cookies that show which pages are read and how the site is used, so it can be improved.',
+                      linkedCategory: 'analytics'
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          onFirstConsent: () => {
+            if (window.CookieConsent.acceptedCategory('analytics')) {
+              enableAnalytics();
+            }
+          },
+          onConsent: () => {
+            if (window.CookieConsent.acceptedCategory('analytics')) {
+              enableAnalytics();
+            }
+          },
+          onChange: () => {
+            if (window.CookieConsent.acceptedCategory('analytics')) {
+              enableAnalytics();
+            } else {
+              disableAnalytics();
+            }
+          }
+        });
+
+        if (window.CookieConsent.acceptedCategory('analytics')) {
+          enableAnalytics();
+        }
+      };
+
+      window.addEventListener('load', () => initCookieConsent());
+    </script><link rel="stylesheet" href="/assets/about.DC1c45qN.css"><script type="module" src="/assets/hoisted.D6ioL_jD.js"></script></head> <body class="min-h-screen flex flex-col bg-bg text-ink"> <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[200] focus:px-4 focus:py-2 focus:bg-accent-strong focus:text-accent-on focus:rounded focus:font-semibold">
+Skip to main content
+</a>  <header class="no-print"> <div class="border-b border-rule bg-subtle text-[0.8125rem] text-ink-2"> <div class="container-page flex items-center justify-between gap-3 min-h-[2.25rem]"> <a href="/about/#funding" class="inline-flex items-center gap-2 py-1.5 hover:text-ink"> <span>Funded by</span> <img src="/img/BlueDot Impact Logo (b).png" alt="BlueDot Impact" width="98" height="13" class="h-[13px] w-auto dark:invert"> </a> <div class="flex items-center gap-x-4"> <a href="/newsletter/" class="hidden sm:inline py-1.5 hover:text-ink">Newsletter</a> <button id="theme-toggle-desktop" type="button" class="theme-toggle inline-flex items-center gap-1.5 py-1.5 hover:text-ink" aria-label="Switch to dark theme"> <svg class="w-4 h-4 dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg> <svg class="w-4 h-4 hidden dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg> <span class="hidden sm:inline dark:hidden">Dark</span> <span class="hidden sm:dark:inline">Light</span> </button> <button id="sign-in-btn-desktop" type="button" class="hidden py-1.5 font-semibold text-ink hover:text-accent">Sign in</button> <div id="user-menu-desktop" class="relative hidden"> <button id="user-menu-toggle-desktop" type="button" class="flex items-center gap-1.5 py-1" aria-expanded="false" aria-haspopup="true" aria-controls="user-menu-dropdown-desktop"> <span id="user-avatar-desktop" class="w-6 h-6 rounded-full bg-accent-strong text-accent-on flex items-center justify-center text-xs font-semibold overflow-hidden">?</span> <span class="sr-only">Account menu</span> <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg> </button> <div id="user-menu-dropdown-desktop" class="hidden absolute right-0 top-full mt-1 z-50 min-w-[13rem] py-1 bg-surface border border-rule rounded shadow-[0_8px_24px_-12px_rgb(0_0_0/0.25)]"> <div class="px-4 py-2.5 border-b border-rule"> <p class="text-sm font-semibold text-ink truncate" id="user-name-desktop">User</p> <p class="text-xs text-ink-3 truncate" id="user-email-desktop">user@example.com</p> </div> <a href="/my-papers/" class="block px-4 py-2 text-sm text-ink-2 hover:bg-subtle hover:text-ink">Saved papers</a> <a href="/account/" class="block px-4 py-2 text-sm text-ink-2 hover:bg-subtle hover:text-ink">Account settings</a> <button id="sign-out-btn-desktop" type="button" class="block w-full text-left px-4 py-2 text-sm text-ink-2 hover:bg-subtle hover:text-ink">Sign out</button> </div> </div> </div> </div> </div> <div class="border-b border-rule"> <div class="container-page flex items-center gap-6 min-h-[4.25rem]"> <a href="/" class="inline-flex items-center gap-2.5 shrink-0 text-ink " aria-label="The Guardrail, home"> <span class="w-8 h-8 rounded-[22%] bg-accent-strong text-accent-on flex items-center justify-center shrink-0" aria-hidden="true"> <svg viewBox="0 0 32 32" class="w-[72%] h-[72%]" fill="currentColor"> <rect x="3" y="9" width="26" height="4" rx="1"></rect> <rect x="3" y="16" width="26" height="2.5" rx="1"></rect> <rect x="7" y="9" width="3" height="16" rx="1"></rect> <rect x="22" y="9" width="3" height="16" rx="1"></rect> </svg> </span> <span class="font-serif font-semibold leading-none tracking-[-0.015em] text-[1.4rem]">The Guardrail</span> </a> <nav class="hidden lg:flex items-center gap-x-6 ml-auto text-[0.9375rem] font-medium" aria-label="Main"> <a href="/weekly-ten/" class="py-2 border-b-2 border-transparent text-ink-2 hover:text-ink hover:border-rule aria-[current=page]:text-ink aria-[current=page]:border-accent"> The Weekly Ten </a><a href="/daily-five/" aria-current="page" class="py-2 border-b-2 border-transparent text-ink-2 hover:text-ink hover:border-rule aria-[current=page]:text-ink aria-[current=page]:border-accent"> The Daily Five </a><a href="/browse/" class="py-2 border-b-2 border-transparent text-ink-2 hover:text-ink hover:border-rule aria-[current=page]:text-ink aria-[current=page]:border-accent"> Browse </a><a href="/analytics/" class="py-2 border-b-2 border-transparent text-ink-2 hover:text-ink hover:border-rule aria-[current=page]:text-ink aria-[current=page]:border-accent"> Analytics </a><a href="/methodology/" class="py-2 border-b-2 border-transparent text-ink-2 hover:text-ink hover:border-rule aria-[current=page]:text-ink aria-[current=page]:border-accent"> Methodology </a><a href="/about/" class="py-2 border-b-2 border-transparent text-ink-2 hover:text-ink hover:border-rule aria-[current=page]:text-ink aria-[current=page]:border-accent"> About </a> </nav> <a href="/browse/#search" class="ml-auto lg:ml-0 inline-flex items-center gap-2 min-h-[2.5rem] px-3 rounded border border-rule text-sm text-ink-2 hover:text-ink hover:border-ink-3"> <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg> <span>Search</span> <kbd class="hidden md:inline" aria-hidden="true">/</kbd> </a> <button id="mobile-menu-toggle" type="button" class="lg:hidden -mr-2 w-11 h-11 flex items-center justify-center text-ink" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu"> <svg id="menu-icon-open" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg> <svg id="menu-icon-close" class="w-6 h-6 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg> </button> </div> </div> <div id="mobile-menu" class="hidden lg:hidden border-b border-rule bg-bg"> <nav class="container-page py-2" aria-label="Main"> <ul class="divide-y divide-rule"> <li> <a href="/weekly-ten/" class="flex items-center min-h-[3rem] text-base font-medium text-ink aria-[current=page]:text-accent"> The Weekly Ten </a> </li><li> <a href="/daily-five/" aria-current="page" class="flex items-center min-h-[3rem] text-base font-medium text-ink aria-[current=page]:text-accent"> The Daily Five </a> </li><li> <a href="/browse/" class="flex items-center min-h-[3rem] text-base font-medium text-ink aria-[current=page]:text-accent"> Browse </a> </li><li> <a href="/analytics/" class="flex items-center min-h-[3rem] text-base font-medium text-ink aria-[current=page]:text-accent"> Analytics </a> </li><li> <a href="/methodology/" class="flex items-center min-h-[3rem] text-base font-medium text-ink aria-[current=page]:text-accent"> Methodology </a> </li><li> <a href="/about/" class="flex items-center min-h-[3rem] text-base font-medium text-ink aria-[current=page]:text-accent"> About </a> </li> <li><a href="/newsletter/" class="flex items-center min-h-[3rem] text-base font-medium text-ink">Newsletter</a></li> </ul> <div id="mobile-auth-section" class="mt-2 pt-3 pb-2 border-t border-rule"> <button id="sign-in-btn-mobile" type="button" class="hidden btn btn-secondary w-full">Sign in to save papers</button> <div id="mobile-user-info" class="hidden pb-2"> <p class="text-sm font-semibold text-ink" id="mobile-user-name">User</p> <p class="text-xs text-ink-3" id="mobile-user-email">user@example.com</p> </div> <a id="mobile-my-papers-link" href="/my-papers/" class="hidden items-center min-h-[2.75rem] text-base text-ink-2">Saved papers</a> <a id="mobile-account-link" href="/account/" class="hidden items-center min-h-[2.75rem] text-base text-ink-2">Account settings</a> <button id="sign-out-btn-mobile" type="button" class="hidden w-full items-center min-h-[2.75rem] text-base text-ink-2 text-left">Sign out</button> </div> </nav> </div> </header>  <main id="main-content" class="container-page"> <header class="pt-10 md:pt-14 pb-8 max-w-3xl"> <h1 class="text-[2.5rem] md:text-[3.25rem] leading-[1.05] tracking-[-0.02em]">The Daily Five</h1> <p class="mt-4 text-[1.125rem] leading-relaxed text-ink-2">
+The five papers ranked highest each day by The Guardrail's two-stage language-model review, out of everything added to the
+        index that day. For the week's best, see <a href="/weekly-ten/" class="link">The Weekly Ten</a>.
+</p> <p class="mt-2 text-sm leading-relaxed text-ink-3">
+"Why it matters" lines and scores are written by language models and are not edited. Scores marked "review" come from the second-stage
+        review; "screening" scores come from the first pass. <a href="/methodology/" class="link">How ranking works</a> </p> </header> <div class="flex flex-wrap items-center justify-between gap-3 border-t-2 border-rule-strong pt-3 no-print"> <p id="days-status" class="text-sm text-ink-3" aria-live="polite"></p> <label class="flex items-center gap-2 text-sm text-ink-2"> <span>Go to a day</span> <select id="jump-to-day" class="field !min-h-[2.25rem] !w-auto pr-8 text-sm" disabled> <option value="">Loading days…</option> </select> </label> </div> <div id="days" data-url="https://data.theguardrail.net/index/daily-picks.json" data-latest="2026-10-22"> <section class="day-section" id="day-2026-10-22" aria-labelledby="day-heading-2026-10-22"> <h2 id="day-heading-2026-10-22" class="sticky top-0 z-10 bg-bg py-3 text-[1.375rem] border-b border-rule"> Thursday 22 October 2026 <span class="ml-2 font-sans text-sm font-normal text-ink-3">top 5 of 361 papers added</span> </h2> <article class="paper-row grid grid-cols-[2rem_minmax(0,1fr)_auto] sm:grid-cols-[2.75rem_minmax(0,1fr)_auto] gap-x-4 sm:gap-x-6 py-5 border-t border-rule" id="paper-2610-31662" data-entry>
+    <div class="font-serif text-[1.75rem] leading-none text-accent tnum" aria-hidden="true">1</div>
+    <div class="min-w-0">
+      <h3 class="font-serif text-[1.1875rem] leading-snug font-semibold tracking-[-0.005em]"><span class="sr-only">1. </span><a class="paper-link" data-primary href="https://arxiv.org/abs/2610.31662v1" target="_blank" rel="noopener noreferrer">Reliable AI-Assisted Decisions via Selective Auditing<span class="sr-only"> (arXiv, opens in a new tab)</span></a></h3>
+      <p class="mt-1 text-sm text-ink-2">Isaac Gibbs, Elise L. Han, Ryan J. Tibshirani and Tijana Zrnic</p>
+      <p class="mt-2 font-serif text-[1.0625rem] leading-relaxed text-ink-2">Selective auditing could let AI systems reduce human review while provably limiting the share of their errors that go unchecked.</p>
+      <div class="mt-2.5 flex flex-wrap items-center gap-x-4 gap-y-1 text-[0.8125rem] text-ink-3">
+        <ul class="inline-flex flex-wrap gap-x-3 gap-y-1" aria-label="Categories"><li class="inline-flex items-center gap-1.5 cat-agents"><span class="cat-swatch" aria-hidden="true"></span>Agents &amp; Control</li><li class="inline-flex items-center gap-1.5 cat-evaluations"><span class="cat-swatch" aria-hidden="true"></span>Evaluations</li><li class="inline-flex items-center gap-1.5 cat-governance"><span class="cat-swatch" aria-hidden="true"></span>Policy &amp; Governance</li><li class="inline-flex items-center gap-1.5 cat-robustness"><span class="cat-swatch" aria-hidden="true"></span>Robustness &amp; Security</li></ul>
+        <span>Submitted 22 Oct 2026</span>
+        <span class="font-mono text-[0.78rem]">arXiv:2610.31662</span>
+      </div>
+      
+      <div class="mt-3 flex flex-wrap items-center gap-x-5 gap-y-1.5 text-sm no-print"><button type="button" class="btn-text" data-disclosure-toggle aria-controls="paper-2610-31662-abstract" aria-expanded="false" data-open-label="Hide abstract" data-closed-label="Abstract"><span data-disclosure-label>Abstract</span><svg class="disclosure-chevron w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><a class="btn-text" href="https://arxiv.org/abs/2610.31662v1" target="_blank" rel="noopener noreferrer">arXiv<svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg><span class="sr-only"> (opens in a new tab)</span></a><a class="btn-text" href="https://arxiv.org/pdf/2610.31662v1" target="_blank" rel="noopener noreferrer">PDF<span class="sr-only"> (opens in a new tab)</span></a><button type="button" class="btn-text" data-cite data-cite-id="2610.31662" data-cite-title="Reliable AI-Assisted Decisions via Selective Auditing" data-cite-authors="Isaac Gibbs|Elise L. Han|Ryan J. Tibshirani|Tijana Zrnic" data-cite-year="2026"><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 7H5v6h4v4H5M19 7h-4v6h4v4h-4"/></svg><span data-cite-label>Cite</span><span class="sr-only"> (copies BibTeX)</span></button><button type="button" class="btn-text" data-save-paper="2610.31662" aria-pressed="false"><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg><span data-save-label>Save</span></button></div>
+      <div id="paper-2610-31662-abstract" class="disclosure-panel" data-state="closed"><div><div class="mt-3 px-4 py-3.5 bg-subtle border-y border-rule"><p class="kicker">Abstract, by the authors</p><p class="mt-1.5 font-serif text-base leading-relaxed text-ink-2">We consider online monitoring of an AI system that produces a sequence of decisions. At each round, the system outputs a proposed decision together with a confidence score estimating the trustworthiness of the decision. The decision and confidence score need not be produced by the same model: for example, one agent may propose a decision, while a separate verifier agent evaluates it and outputs a correctness or safety score. Based on this information, we must decide whether to accept the AI decision automatically or consult an expert, such as a human auditor, who reviews the proposal and either accepts or corrects it. We formulate this task as an online constrained optimization problem in which the goal is to minimize the frequency of expert auditing while guaranteeing that the fraction of AI errors that go unaudited stays below a user-defined threshold. We derive a family of algorithms with provable error-control guarantees with no assumptions, including a method that is optimally efficient: it asymptotically attains the best achievable auditing rate for both adversarial and i.i.d. data streams. Experiments on screening harmful requests to large language models, qualitative text annotation, and data labeling show that our methods achieve valid error control in practice while substantially reducing the need for human auditing compared to baselines.</p></div></div></div>
+    </div>
+    <div class="paper-row-score text-right shrink-0">
+        <span class="block font-mono text-[1.0625rem] font-medium text-ink tnum">8.7</span>
+        <span class="block text-xs text-ink-3">review</span>
+      </div>
+  </article><article class="paper-row grid grid-cols-[2rem_minmax(0,1fr)_auto] sm:grid-cols-[2.75rem_minmax(0,1fr)_auto] gap-x-4 sm:gap-x-6 py-5 border-t border-rule" id="paper-2610-30582" data-entry>
+    <div class="font-serif text-[1.75rem] leading-none text-accent tnum" aria-hidden="true">2</div>
+    <div class="min-w-0">
+      <h3 class="font-serif text-[1.1875rem] leading-snug font-semibold tracking-[-0.005em]"><span class="sr-only">2. </span><a class="paper-link" data-primary href="https://arxiv.org/abs/2610.30582v1" target="_blank" rel="noopener noreferrer">Model Organisms of Collusion: Corrective Transfer in Untrusted Monitors<span class="sr-only"> (arXiv, opens in a new tab)</span></a></h3>
+      <p class="mt-1 text-sm text-ink-2">Juan-Pablo Rivera, Ari Spiesberger, Juan J Vazquez and 6 others</p>
+      <p class="mt-2 font-serif text-[1.0625rem] leading-relaxed text-ink-2">Correcting one detected collusion can substantially reduce unseen collusion in an untrusted AI monitor, but success on the caught case does not show how far that protection transfers.</p>
+      <div class="mt-2.5 flex flex-wrap items-center gap-x-4 gap-y-1 text-[0.8125rem] text-ink-3">
+        <ul class="inline-flex flex-wrap gap-x-3 gap-y-1" aria-label="Categories"><li class="inline-flex items-center gap-1.5 cat-alignment"><span class="cat-swatch" aria-hidden="true"></span>Alignment</li><li class="inline-flex items-center gap-1.5 cat-robustness"><span class="cat-swatch" aria-hidden="true"></span>Robustness &amp; Security</li><li class="inline-flex items-center gap-1.5 cat-evaluations"><span class="cat-swatch" aria-hidden="true"></span>Evaluations</li><li class="inline-flex items-center gap-1.5 cat-agents"><span class="cat-swatch" aria-hidden="true"></span>Agents &amp; Control</li></ul>
+        <span>Submitted 22 Oct 2026</span>
+        <span class="font-mono text-[0.78rem]">arXiv:2610.30582</span>
+      </div>
+      
+      <div class="mt-3 flex flex-wrap items-center gap-x-5 gap-y-1.5 text-sm no-print"><button type="button" class="btn-text" data-disclosure-toggle aria-controls="paper-2610-30582-abstract" aria-expanded="false" data-open-label="Hide abstract" data-closed-label="Abstract"><span data-disclosure-label>Abstract</span><svg class="disclosure-chevron w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><a class="btn-text" href="https://arxiv.org/abs/2610.30582v1" target="_blank" rel="noopener noreferrer">arXiv<svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg><span class="sr-only"> (opens in a new tab)</span></a><a class="btn-text" href="https://arxiv.org/pdf/2610.30582v1" target="_blank" rel="noopener noreferrer">PDF<span class="sr-only"> (opens in a new tab)</span></a><button type="button" class="btn-text" data-cite data-cite-id="2610.30582" data-cite-title="Model Organisms of Collusion: Corrective Transfer in Untrusted Monitors" data-cite-authors="Juan-Pablo Rivera|Ari Spiesberger|Juan J Vazquez|Arun Jose|Axel Ahlqvist|Adeline Kassler|Meru Gopalan|Sandy Tanwisuth|John Hughes" data-cite-year="2026"><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 7H5v6h4v4H5M19 7h-4v6h4v4h-4"/></svg><span data-cite-label>Cite</span><span class="sr-only"> (copies BibTeX)</span></button><button type="button" class="btn-text" data-save-paper="2610.30582" aria-pressed="false"><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg><span data-save-label>Save</span></button></div>
+      <div id="paper-2610-30582-abstract" class="disclosure-panel" data-state="closed"><div><div class="mt-3 px-4 py-3.5 bg-subtle border-y border-rule"><p class="kicker">Abstract, by the authors</p><p class="mt-1.5 font-serif text-base leading-relaxed text-ink-2">AI control protocols aim to get useful work from models that may be misaligned by monitoring their behaviour. One approach uses a second copy of the same model as the monitor. This avoids relying on a weaker reviewer the model could outsmart, but risks collusion: the model, now monitoring itself, may cover up its own misbehaviour. One remedy is to fine-tune the monitor on whatever examples of misbehaviour the control team has caught. We ask whether this training also removes collusion that the control team has not yet found. We fine-tune Llama-3.3-70B and Qwen2.5-72B to install five policy-monitor behaviour pairs, correct the monitor on 300 honest reviews of one caught collusion, and measure collusion on the other four in unseen prompt formats. Averaged over the three seeds of each family, correction reduces held-out collusion from 91% to 14-20% under three of the four methods we compare (individual seeds 10-32%), while a control fine-tuned on the same number of unrelated examples leaves 56-93%. Family-average accuracy on control items changes by at most five points and capability is preserved, apart from a drop in mathematical accuracy on one Llama seed. Under the tested training configuration, methods with similar caught-task accuracy differ in held-out transfer, from 58% to 83% average reduction, so the caught behaviour alone does not reveal how far a correction reaches. Catching one collusion lets the control team reduce, but not remove, collusion it has not caught, by retraining the monitor alone.</p></div></div></div>
+    </div>
+    <div class="paper-row-score text-right shrink-0">
+        <span class="block font-mono text-[1.0625rem] font-medium text-ink tnum">8.2</span>
+        <span class="block text-xs text-ink-3">review</span>
+      </div>
+  </article><article class="paper-row grid grid-cols-[2rem_minmax(0,1fr)_auto] sm:grid-cols-[2.75rem_minmax(0,1fr)_auto] gap-x-4 sm:gap-x-6 py-5 border-t border-rule" id="paper-2610-30678" data-entry>
+    <div class="font-serif text-[1.75rem] leading-none text-accent tnum" aria-hidden="true">3</div>
+    <div class="min-w-0">
+      <h3 class="font-serif text-[1.1875rem] leading-snug font-semibold tracking-[-0.005em]"><span class="sr-only">3. </span><a class="paper-link" data-primary href="https://arxiv.org/abs/2610.30678v1" target="_blank" rel="noopener noreferrer">Scaling Laws for Safety Probes<span class="sr-only"> (arXiv, opens in a new tab)</span></a></h3>
+      <p class="mt-1 text-sm text-ink-2">Yuchen Wu and Jerry Wei</p>
+      <p class="mt-2 font-serif text-[1.0625rem] leading-relaxed text-ink-2">Scaling laws could help safety teams choose model size, label budgets, and probe architectures before spending resources on real-time harm monitors.</p>
+      <div class="mt-2.5 flex flex-wrap items-center gap-x-4 gap-y-1 text-[0.8125rem] text-ink-3">
+        <ul class="inline-flex flex-wrap gap-x-3 gap-y-1" aria-label="Categories"><li class="inline-flex items-center gap-1.5 cat-interpretability"><span class="cat-swatch" aria-hidden="true"></span>Interpretability</li><li class="inline-flex items-center gap-1.5 cat-evaluations"><span class="cat-swatch" aria-hidden="true"></span>Evaluations</li><li class="inline-flex items-center gap-1.5 cat-alignment"><span class="cat-swatch" aria-hidden="true"></span>Alignment</li></ul>
+        <span>Submitted 22 Oct 2026</span>
+        <span class="font-mono text-[0.78rem]">arXiv:2610.30678</span>
+      </div>
+      
+      <div class="mt-3 flex flex-wrap items-center gap-x-5 gap-y-1.5 text-sm no-print"><button type="button" class="btn-text" data-disclosure-toggle aria-controls="paper-2610-30678-abstract" aria-expanded="false" data-open-label="Hide abstract" data-closed-label="Abstract"><span data-disclosure-label>Abstract</span><svg class="disclosure-chevron w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><a class="btn-text" href="https://arxiv.org/abs/2610.30678v1" target="_blank" rel="noopener noreferrer">arXiv<svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg><span class="sr-only"> (opens in a new tab)</span></a><a class="btn-text" href="https://arxiv.org/pdf/2610.30678v1" target="_blank" rel="noopener noreferrer">PDF<span class="sr-only"> (opens in a new tab)</span></a><button type="button" class="btn-text" data-cite data-cite-id="2610.30678" data-cite-title="Scaling Laws for Safety Probes" data-cite-authors="Yuchen Wu|Jerry Wei" data-cite-year="2026"><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 7H5v6h4v4H5M19 7h-4v6h4v4h-4"/></svg><span data-cite-label>Cite</span><span class="sr-only"> (copies BibTeX)</span></button><button type="button" class="btn-text" data-save-paper="2610.30678" aria-pressed="false"><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg><span data-save-label>Save</span></button></div>
+      <div id="paper-2610-30678-abstract" class="disclosure-panel" data-state="closed"><div><div class="mt-3 px-4 py-3.5 bg-subtle border-y border-rule"><p class="kicker">Abstract, by the authors</p><p class="mt-1.5 font-serif text-base leading-relaxed text-ink-2">Safety probes trained on a model&#39;s activations are a standard tool for monitoring language models in real time. Each time a new model is released or a new harm area needs to be monitored, the probe must be retrained, which requires new labels and a choice of probe architecture. Yet neither the model nor the labels tell us in advance how well the resulting probe will perform. Finding out requires training and comparing many probe configurations. In this paper, we ask whether probe performance can instead be predicted in advance from model size and the number of labels. Existing safety datasets are insufficient for this, as they are either limited in scale or already saturated. We therefore construct six new safety datasets of sufficient size and difficulty. On these datasets, we train two probe architectures on 20 base models from five model families, with 32 to $10^{6}$ labels for each model. We measure performance using probe error, defined as 1 - AUROC, where lower values are better. We find that probe error follows two simple scaling laws. First, the lowest probe error a model can reach falls as a power law in its size. Second, probe error decreases towards its floor as the number of examples increases; the slope increases as the target model size increases. Both laws hold across tasks, model families and probe architectures, and only their fitted constants differ. When fitted on the smallest models of a family, the laws predict the error of the next larger model to within 0.02 in 72% of cases. They also identify whether more labels or a larger model is the cheaper way to reach a target error in 73% of cases. Finally, they choose the probe architecture with an extra error of only 0.006 on average when they pick the worse one. These laws allow safety researchers to determine how to create the best probe for any given model and label budget.</p></div></div></div>
+    </div>
+    <div class="paper-row-score text-right shrink-0">
+        <span class="block font-mono text-[1.0625rem] font-medium text-ink tnum">8.2</span>
+        <span class="block text-xs text-ink-3">review</span>
+      </div>
+  </article><article class="paper-row grid grid-cols-[2rem_minmax(0,1fr)_auto] sm:grid-cols-[2.75rem_minmax(0,1fr)_auto] gap-x-4 sm:gap-x-6 py-5 border-t border-rule" id="paper-2610-30785" data-entry>
+    <div class="font-serif text-[1.75rem] leading-none text-accent tnum" aria-hidden="true">4</div>
+    <div class="min-w-0">
+      <h3 class="font-serif text-[1.1875rem] leading-snug font-semibold tracking-[-0.005em]"><span class="sr-only">4. </span><a class="paper-link" data-primary href="https://arxiv.org/abs/2610.30785v1" target="_blank" rel="noopener noreferrer">Invisibilization as a Source of Probability Bias in Language Models<span class="sr-only"> (arXiv, opens in a new tab)</span></a></h3>
+      <p class="mt-1 text-sm text-ink-2">Christian Arnold, Ernesto Calvo, Guadalupe Gonzalez and 2 others</p>
+      <p class="mt-2 font-serif text-[1.0625rem] leading-relaxed text-ink-2">Safety-trained models may produce racial disparities by refusing to evaluate some people’s reports, a failure that standard average-trust audits could miss.</p>
+      <div class="mt-2.5 flex flex-wrap items-center gap-x-4 gap-y-1 text-[0.8125rem] text-ink-3">
+        <ul class="inline-flex flex-wrap gap-x-3 gap-y-1" aria-label="Categories"><li class="inline-flex items-center gap-1.5 cat-evaluations"><span class="cat-swatch" aria-hidden="true"></span>Evaluations</li><li class="inline-flex items-center gap-1.5 cat-alignment"><span class="cat-swatch" aria-hidden="true"></span>Alignment</li><li class="inline-flex items-center gap-1.5 cat-robustness"><span class="cat-swatch" aria-hidden="true"></span>Robustness &amp; Security</li></ul>
+        <span>Submitted 22 Oct 2026</span>
+        <span class="font-mono text-[0.78rem]">arXiv:2610.30785</span>
+      </div>
+      
+      <div class="mt-3 flex flex-wrap items-center gap-x-5 gap-y-1.5 text-sm no-print"><button type="button" class="btn-text" data-disclosure-toggle aria-controls="paper-2610-30785-abstract" aria-expanded="false" data-open-label="Hide abstract" data-closed-label="Abstract"><span data-disclosure-label>Abstract</span><svg class="disclosure-chevron w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><a class="btn-text" href="https://arxiv.org/abs/2610.30785v1" target="_blank" rel="noopener noreferrer">arXiv<svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg><span class="sr-only"> (opens in a new tab)</span></a><a class="btn-text" href="https://arxiv.org/pdf/2610.30785v1" target="_blank" rel="noopener noreferrer">PDF<span class="sr-only"> (opens in a new tab)</span></a><button type="button" class="btn-text" data-cite data-cite-id="2610.30785" data-cite-title="Invisibilization as a Source of Probability Bias in Language Models" data-cite-authors="Christian Arnold|Ernesto Calvo|Guadalupe Gonzalez|Sebastián Vallejo Vera|Tiago Ventura" data-cite-year="2026"><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 7H5v6h4v4H5M19 7h-4v6h4v4h-4"/></svg><span data-cite-label>Cite</span><span class="sr-only"> (copies BibTeX)</span></button><button type="button" class="btn-text" data-save-paper="2610.30785" aria-pressed="false"><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg><span data-save-label>Save</span></button></div>
+      <div id="paper-2610-30785-abstract" class="disclosure-panel" data-state="closed"><div><div class="mt-3 px-4 py-3.5 bg-subtle border-y border-rule"><p class="kicker">Abstract, by the authors</p><p class="mt-1.5 font-serif text-base leading-relaxed text-ink-2">Language models are aligned to avoid using protected attributes such as race, ethnicity, and gender to inform their responses. Therefore, they increasingly refuse or hedge when such attributes appear in a prompt. However, if a system must decide how much to learn from what people tell it, it is costly to refuse valuable information because of its source. In this article, we measure the cost of declining information in a two-urn game with an exact Bayesian answer. We present leading LLM models from two developers (OpenAI and Anthropic) with a prompt that requires them to decide how far to trust an unverifiable report from a participant whose description we randomize across ten configurations (6,600 sessions). We show that leading models often decline to assess the reporter, treating information as worthless at rates set by the description rather than by the evidence. At its widest, models decline a Black-described reporter 46% of the time and a white-described reporter 9%; yet, when they do assess the information, the Black-described reporter receives slightly more trust. The bias is invisible to audits that compare average trust or look only at assessed cases. It grows with reasoning effort, follows words rather than categories (models invoke race for &quot;Black&quot; but not for its Spanish translation negro, and never for &quot;Indigenous&quot;), and worsens under warning instructions a practitioner would try first. We also present a scoring option that reduces the refusal rate bias. When a model&#39;s trust is scored against revealed truth over repeated rounds, it credits identical records equally. In four of five configurations from Anthropic and OpenAI, the racial gap in trust falls below 0.02 by the last rounds.</p></div></div></div>
+    </div>
+    <div class="paper-row-score text-right shrink-0">
+        <span class="block font-mono text-[1.0625rem] font-medium text-ink tnum">8.2</span>
+        <span class="block text-xs text-ink-3">review</span>
+      </div>
+  </article><article class="paper-row grid grid-cols-[2rem_minmax(0,1fr)_auto] sm:grid-cols-[2.75rem_minmax(0,1fr)_auto] gap-x-4 sm:gap-x-6 py-5 border-t border-rule" id="paper-2610-30635" data-entry>
+    <div class="font-serif text-[1.75rem] leading-none text-accent tnum" aria-hidden="true">5</div>
+    <div class="min-w-0">
+      <h3 class="font-serif text-[1.1875rem] leading-snug font-semibold tracking-[-0.005em]"><span class="sr-only">5. </span><a class="paper-link" data-primary href="https://arxiv.org/abs/2610.30635v1" target="_blank" rel="noopener noreferrer">What the Specification Did Not Say: Specification-Oracle Gaps in Test-Graded Coding-Agent Benchmarks<span class="sr-only"> (arXiv, opens in a new tab)</span></a></h3>
+      <p class="mt-1 text-sm text-ink-2">Fei Ding</p>
+      <p class="mt-2 font-serif text-[1.0625rem] leading-relaxed text-ink-2">Shows how hidden implementation details in coding-agent tests can distort capability evaluations, and provides an audit to identify affected tasks.</p>
+      <div class="mt-2.5 flex flex-wrap items-center gap-x-4 gap-y-1 text-[0.8125rem] text-ink-3">
+        <ul class="inline-flex flex-wrap gap-x-3 gap-y-1" aria-label="Categories"><li class="inline-flex items-center gap-1.5 cat-evaluations"><span class="cat-swatch" aria-hidden="true"></span>Evaluations</li><li class="inline-flex items-center gap-1.5 cat-agents"><span class="cat-swatch" aria-hidden="true"></span>Agents &amp; Control</li></ul>
+        <span>Submitted 22 Oct 2026</span>
+        <span class="font-mono text-[0.78rem]">arXiv:2610.30635</span>
+      </div>
+      
+      <div class="mt-3 flex flex-wrap items-center gap-x-5 gap-y-1.5 text-sm no-print"><button type="button" class="btn-text" data-disclosure-toggle aria-controls="paper-2610-30635-abstract" aria-expanded="false" data-open-label="Hide abstract" data-closed-label="Abstract"><span data-disclosure-label>Abstract</span><svg class="disclosure-chevron w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><a class="btn-text" href="https://arxiv.org/abs/2610.30635v1" target="_blank" rel="noopener noreferrer">arXiv<svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg><span class="sr-only"> (opens in a new tab)</span></a><a class="btn-text" href="https://arxiv.org/pdf/2610.30635v1" target="_blank" rel="noopener noreferrer">PDF<span class="sr-only"> (opens in a new tab)</span></a><button type="button" class="btn-text" data-cite data-cite-id="2610.30635" data-cite-title="What the Specification Did Not Say: Specification-Oracle Gaps in Test-Graded Coding-Agent Benchmarks" data-cite-authors="Fei Ding" data-cite-year="2026"><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 7H5v6h4v4H5M19 7h-4v6h4v4h-4"/></svg><span data-cite-label>Cite</span><span class="sr-only"> (copies BibTeX)</span></button><button type="button" class="btn-text" data-save-paper="2610.30635" aria-pressed="false"><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg><span data-save-label>Save</span></button></div>
+      <div id="paper-2610-30635-abstract" class="disclosure-panel" data-state="closed"><div><div class="mt-3 px-4 py-3.5 bg-subtle border-y border-rule"><p class="kicker">Abstract, by the authors</p><p class="mt-1.5 font-serif text-base leading-relaxed text-ink-2">Coding-agent benchmarks often describe a task in natural language but grade it with tests taken from the upstream project. Passing those tests can require information the description never states: a constant&#39;s name, a module path, an exact message. We call this a specification-oracle gap: where it exists, a benchmark also measures whether an agent reproduces upstream implementation details. We formalise the gap, including the inconsistencies that chains of dependent tasks add, and build a static audit for five languages that classifies every name-, path- and literal-level dependency of every scored test (held-out precision 89.2%, recall 92.9%). On SWE-Milestone (98 graded milestones, 35 published runs), 25 milestones contain a test that depends on an unstated, non-inferable name or path. Build units with such a dependency fail in 80.6% of runs, against 48.4% for comparable units without one, and withholding a single hidden name from the reference stops its unit&#39;s tests from compiling in 126 of 128 cases. The leaderboard&#39;s ranking is robust to removing the affected tests, but they shift scores within repositories and favour agents that reproduce upstream names. Across four further benchmarks, prevalence appears to follow construction: a third or more of the tasks are affected where specifications are release notes or LLM summaries, almost none where tasks are screened or written for their tests; how much a gap costs depends on how the harness grades. We release the audit, corrected filter lists and specification addenda.</p></div></div></div>
+    </div>
+    <div class="paper-row-score text-right shrink-0">
+        <span class="block font-mono text-[1.0625rem] font-medium text-ink tnum">8.2</span>
+        <span class="block text-xs text-ink-3">review</span>
+      </div>
+  </article> </section> </div> <div id="days-loading" class="mt-6 space-y-6" aria-hidden="true"> <div class="animate-pulse grid grid-cols-[2.75rem_minmax(0,1fr)] gap-x-6 py-5 border-t border-rule"> <div class="h-7 w-5 rounded bg-sunken"></div> <div class="space-y-2.5"> <div class="h-5 w-3/4 rounded bg-sunken"></div> <div class="h-3.5 w-1/3 rounded bg-sunken"></div> <div class="h-3.5 w-full rounded bg-sunken"></div> </div> </div><div class="animate-pulse grid grid-cols-[2.75rem_minmax(0,1fr)] gap-x-6 py-5 border-t border-rule"> <div class="h-7 w-5 rounded bg-sunken"></div> <div class="space-y-2.5"> <div class="h-5 w-3/4 rounded bg-sunken"></div> <div class="h-3.5 w-1/3 rounded bg-sunken"></div> <div class="h-3.5 w-full rounded bg-sunken"></div> </div> </div><div class="animate-pulse grid grid-cols-[2.75rem_minmax(0,1fr)] gap-x-6 py-5 border-t border-rule"> <div class="h-7 w-5 rounded bg-sunken"></div> <div class="space-y-2.5"> <div class="h-5 w-3/4 rounded bg-sunken"></div> <div class="h-3.5 w-1/3 rounded bg-sunken"></div> <div class="h-3.5 w-full rounded bg-sunken"></div> </div> </div> </div> <p id="days-error" class="hidden mt-8 text-ink-2" role="alert">
+Earlier days could not be loaded just now. Please try again later.
+</p> <div class="mt-8 text-center no-print"> <button id="load-more-days" type="button" class="btn btn-secondary hidden">Show earlier days</button> </div> </main> <footer class="mt-auto pt-16 no-print"> <div class="container-page pb-10"> <div class="rule-double" aria-hidden="true"></div> <div class="grid gap-10 pt-8 md:grid-cols-[minmax(0,2fr)_repeat(3,minmax(0,1fr))]"> <div class="max-w-md"> <a href="/" class="inline-flex items-center gap-2.5 shrink-0 text-ink " aria-label="The Guardrail, home"> <span class="w-6 h-6 rounded-[22%] bg-accent-strong text-accent-on flex items-center justify-center shrink-0" aria-hidden="true"> <svg viewBox="0 0 32 32" class="w-[72%] h-[72%]" fill="currentColor"> <rect x="3" y="9" width="26" height="4" rx="1"></rect> <rect x="3" y="16" width="26" height="2.5" rx="1"></rect> <rect x="7" y="9" width="3" height="16" rx="1"></rect> <rect x="22" y="9" width="3" height="16" rx="1"></rect> </svg> </span> <span class="font-serif font-semibold leading-none tracking-[-0.015em] text-lg">The Guardrail</span> </a> <p class="mt-4 text-sm leading-relaxed text-ink-2">
+The Guardrail screens new arXiv papers for relevance to AI safety every day and ranks the most important each week.
+          Summaries, scores and rankings are written by language models, and no one edits them before they are published.
+<a href="/methodology/" class="link">How it works</a> </p> <a href="https://bluedot.org/" class="mt-5 inline-flex items-center gap-2 text-sm text-ink-2 hover:text-ink"> <span>Funded by a BlueDot Impact Rapid Grant</span> <img src="/img/BlueDot Impact Logo (b).png" alt="" width="98" height="13" class="h-[13px] w-auto dark:invert" loading="lazy"> </a> </div> <nav aria-label="Read"> <h2 class="kicker">Read</h2> <ul class="mt-3 space-y-2 text-sm"> <li><a href="/weekly-ten/" class="text-ink-2 hover:text-accent hover:underline underline-offset-2">The Weekly Ten</a></li><li><a href="/daily-five/" class="text-ink-2 hover:text-accent hover:underline underline-offset-2">The Daily Five</a></li><li><a href="/browse/" class="text-ink-2 hover:text-accent hover:underline underline-offset-2">Browse all papers</a></li><li><a href="/analytics/" class="text-ink-2 hover:text-accent hover:underline underline-offset-2">Analytics</a></li><li><a href="/newsletter/" class="text-ink-2 hover:text-accent hover:underline underline-offset-2">Newsletter</a></li> </ul> </nav><nav aria-label="About"> <h2 class="kicker">About</h2> <ul class="mt-3 space-y-2 text-sm"> <li><a href="/about/" class="text-ink-2 hover:text-accent hover:underline underline-offset-2">About The Guardrail</a></li><li><a href="/methodology/" class="text-ink-2 hover:text-accent hover:underline underline-offset-2">Methodology</a></li><li><a href="/getting-started/" class="text-ink-2 hover:text-accent hover:underline underline-offset-2">Getting started</a></li><li><a href="/contact/" class="text-ink-2 hover:text-accent hover:underline underline-offset-2">Contact</a></li><li><a href="https://github.com/thecraigd/ai-safety-papers" class="text-ink-2 hover:text-accent hover:underline underline-offset-2">Website repository</a></li> </ul> </nav><nav aria-label="Legal"> <h2 class="kicker">Legal</h2> <ul class="mt-3 space-y-2 text-sm"> <li><a href="/impressum/" class="text-ink-2 hover:text-accent hover:underline underline-offset-2">Impressum</a></li><li><a href="/privacy/" class="text-ink-2 hover:text-accent hover:underline underline-offset-2">Privacy policy</a></li><li><a href="/terms/" class="text-ink-2 hover:text-accent hover:underline underline-offset-2">Terms of service</a></li> </ul> </nav> </div> <div class="mt-10 pt-5 border-t border-rule flex flex-col-reverse gap-4 sm:flex-row sm:items-center sm:justify-between text-[0.8125rem] text-ink-3"> <p> <button type="button" data-open-shortcuts class="mr-3 underline underline-offset-2 hover:text-ink">Keyboard shortcuts</button> <button type="button" data-cookie-settings class="mr-3 underline underline-offset-2 hover:text-ink">Cookie settings</button>
+© 2026 The Guardrail. Paper metadata from arXiv; thank you to arXiv for use of its open access interoperability.
+</p> <fieldset class="theme-choice flex items-center gap-1 shrink-0"> <legend class="sr-only">Colour theme</legend> <span class="mr-1" aria-hidden="true">Theme</span> <label class="cursor-pointer"> <input type="radio" name="theme-choice" value="system" class="peer sr-only"> <span class="inline-flex items-center min-h-[1.75rem] px-2 rounded border border-transparent capitalize peer-checked:border-rule peer-checked:bg-surface peer-checked:text-ink peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-accent hover:text-ink"> system </span> </label><label class="cursor-pointer"> <input type="radio" name="theme-choice" value="light" class="peer sr-only"> <span class="inline-flex items-center min-h-[1.75rem] px-2 rounded border border-transparent capitalize peer-checked:border-rule peer-checked:bg-surface peer-checked:text-ink peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-accent hover:text-ink"> light </span> </label><label class="cursor-pointer"> <input type="radio" name="theme-choice" value="dark" class="peer sr-only"> <span class="inline-flex items-center min-h-[1.75rem] px-2 rounded border border-transparent capitalize peer-checked:border-rule peer-checked:bg-surface peer-checked:text-ink peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-accent hover:text-ink"> dark </span> </label> </fieldset> </div> </div> </footer>   <dialog id="auth-modal" class="site-dialog" aria-labelledby="auth-modal-title" aria-describedby="auth-modal-description"> <div class="p-6 sm:p-7"> <div class="flex items-start justify-between gap-4"> <h2 id="auth-modal-title" class="text-[1.5rem]">Sign in to save papers</h2> <button id="auth-modal-close" type="button" class="-mr-2 -mt-1 w-10 h-10 flex items-center justify-center text-ink-3 hover:text-ink" aria-label="Close"> <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg> </button> </div> <p id="auth-modal-description" class="mt-2 text-[0.9375rem] text-ink-2">
+Saved papers are kept with your account and sync across your devices. Reading never needs an account.
+</p> <div class="mt-6 space-y-2.5"> <button type="button" class="auth-provider-btn btn btn-secondary w-full !justify-start gap-3" data-provider="google"> <svg class="w-5 h-5" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+Continue with Google </button><button type="button" class="auth-provider-btn btn btn-secondary w-full !justify-start gap-3" data-provider="github"> <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/></svg>
+Continue with GitHub </button><button type="button" class="auth-provider-btn btn btn-secondary w-full !justify-start gap-3" data-provider="microsoft"> <svg class="w-5 h-5" viewBox="0 0 23 23"><path fill="#f35325" d="M1 1h10v10H1z"/><path fill="#81bc06" d="M12 1h10v10H12z"/><path fill="#05a6f0" d="M1 12h10v10H1z"/><path fill="#ffba08" d="M12 12h10v10H12z"/></svg>
+Continue with Microsoft </button> </div> <p class="mt-6 text-[0.8125rem] text-ink-3">
+By signing in, you agree to our <a href="/privacy/" class="underline underline-offset-2 hover:text-ink">Privacy Policy</a>.
+</p> </div> </dialog>  <dialog id="shortcuts-dialog" class="site-dialog" aria-labelledby="shortcuts-title"> <div class="p-6"> <div class="flex items-baseline justify-between gap-4"> <h2 id="shortcuts-title" class="text-xl">Keyboard shortcuts</h2> <form method="dialog"> <button type="submit" class="btn-text text-sm">Close</button> </form> </div> <dl class="mt-5 grid grid-cols-[5rem_minmax(0,1fr)] gap-x-4 gap-y-2.5 text-sm">  <dt class="flex gap-1"><kbd>/</kbd></dt> <dd class="text-ink-2">Search papers</dd>  <dt class="flex gap-1"><kbd>j</kbd><kbd>k</kbd></dt> <dd class="text-ink-2">Next or previous paper</dd>  <dt class="flex gap-1"><kbd>o</kbd></dt> <dd class="text-ink-2">Open the paper on arXiv</dd>  <dt class="flex gap-1"><kbd>a</kbd></dt> <dd class="text-ink-2">Show or hide the abstract</dd>  <dt class="flex gap-1"><kbd>s</kbd></dt> <dd class="text-ink-2">Save the paper</dd>  <dt class="flex gap-1"><kbd>c</kbd></dt> <dd class="text-ink-2">Copy its BibTeX citation</dd>  <dt class="flex gap-1"><kbd>?</kbd></dt> <dd class="text-ink-2">Show this list</dd>  </dl> <label class="mt-6 flex items-center gap-2.5 text-sm font-medium text-ink"> <input type="checkbox" data-shortcuts-toggle checked class="w-4 h-4 accent-[rgb(var(--c-accent-strong))]">
+Single-key shortcuts on
+</label> <p class="mt-2 text-[0.8125rem] leading-relaxed text-ink-3">
+Turn them off if they get in the way of a screen reader or other tools. The choice is remembered on this device.
+</p> </div> </dialog>  </body> </html> 
